@@ -1,190 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sr">
 <head>
-<script src="./js/lang-switcher.js" defer></script>
-
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Novo Ropstvo — Galerija</title>
-  <meta name="description" content="Galerija ilustracija iz romana Novo Ropstvo.">
-  <link rel="canonical" href="./galerija.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo ropstvo — Galerija</title>
+  <link rel="icon" href="images/favicon.png">
   <style>
-    :root { --max:1200px; }
-    *{box-sizing:border-box}
-    body{margin:0;font:16px/1.5 system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0b0f12;color:#e8e8e8}
-    header,footer{max-width:var(--max);margin:0 auto;padding:16px}
-    nav a{color:#e8e8e8;text-decoration:none;margin-right:16px;opacity:.85}
-    nav a:hover,nav a[aria-current="page"]{opacity:1;text-decoration:underline}
-    .wrap{max-width:var(--max);margin:0 auto;padding:16px}
-    h1{margin:8px 0 16px;font-size:clamp(22px,3vw,32px)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-    .card{border-radius:14px;overflow:hidden;background:#12171c;border:1px solid #1f2a33}
-    .card img{display:block;width:100%;height:220px;object-fit:cover}
-    footer{opacity:.8;font-size:14px}
-    a.btn{display:inline-block;margin:6px 0 14px;padding:10px 14px;border-radius:10px;border:1px solid #2a3945}
-    .topbar{background:#0f1419;border-bottom:1px solid #1f2a33}
-  </style>
-  <style>
-.gallery{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
-.gallery a{display:block;border:1px solid #1f2a33;border-radius:10px;overflow:hidden;background:#0f1419}
-.gallery img{display:block;width:100%;height:auto}
-.lb-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999}
-.lb-backdrop.open{display:flex}
-.lb-backdrop img{max-width:90vw;max-height:90vh}
-</style>
-<script>
-document.addEventListener('click',e=>{
-  const a=e.target.closest('a[data-lb]'); if(!a) return;
-  e.preventDefault();
-  let lb=document.querySelector('.lb-backdrop');
-  if(!lb){ lb=document.createElement('div'); lb.className='lb-backdrop'; lb.innerHTML='<img alt="">'; document.body.appendChild(lb); lb.addEventListener('click',()=>lb.classList.remove('open')); }
-  lb.querySelector('img').src=a.href; lb.classList.add('open');
-});
-</script>
 
+    :root{{
+      --brand:#0a62c9; /* kao na live sajtu */
+      --text:#121212;
+      --muted:#555;
+      --border:#e6e6e6;
+      --bg:#ffffff;
+    }}
+
+
+*{{box-sizing:border-box}}
+body{{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;margin:0;line-height:1.6;color:var(--text);background:var(--bg)}}
+header,main,footer{{max-width:980px;margin:0 auto;padding:16px}}
+header{{display:flex;gap:12px;align-items:center;justify-content:space-between}}
+nav a{{margin-right:12px;text-decoration:none;color:var(--brand)}}
+nav a[aria-current="page"]{{text-decoration:underline}}
+footer{{border-top:1px solid var(--border);color:var(--muted)}}
+
+.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}}
+figure{{margin:0}}
+img{{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}}
+figcaption{{font-size:14px;color:var(--muted);margin-top:4px}}
+
+</style>
 </head>
 <body>
-  <div class="topbar">
-    <header>
-      <nav aria-label="Glavna navigacija">
-        <a href="./index.html">Početna</a>
-        <a href="./galerija.html" aria-current="page">Galerija</a>
-        <a href="./placanje.html">Uplata</a>
-      </nav>
-    </header>
-  </div>
+  <header>
+    <a href="index.html" aria-label="Početna"><strong>NOVO ROPSTVO</strong></a>
+    <nav aria-label="Glavna navigacija">
+      <a href="index.html">Početna</a>
+      <a href="galerija.html" aria-current="page">Galerija</a>
+      <a href="odlomak.html">Odlomak</a>
+      <a href="placanje.html#sr">Uplata</a>
+    </nav>
+  </header>
 
-  <main class="wrap">
-    <h1>Galerija knjige</h1>
-    <p><a class="btn" href="./index.html">← Nazad na početnu</a></p>
-
-    <section class="grid" aria-label="Galerija slika">
-      <!-- samo slike -->
-      <figure class="card">
-        <a href="./images/skica1.png"><img src="./images/skica1.png" loading="lazy" alt=""></a>
+  <main>
+    <h1>Galerija</h1>
+    <div class="grid">
+      <figure>
+        <img src="images/galerija/01.jpg" alt="Promo vizual knjige Novo ropstvo" loading="lazy">
+        <figcaption>Promo vizual</figcaption>
       </figure>
-
-      <figure class="card">
-        <a href="./images/skica2.png"><img src="./images/skica2.png" loading="lazy" alt=""></a>
+      <figure>
+        <img src="images/galerija/02.jpg" alt="Autor — portret" loading="lazy">
+        <figcaption>Autor, portret</figcaption>
       </figure>
-
-      <figure class="card">
-        <a href="./images/skica3.png"><img src="./images/skica3.png" loading="lazy" alt=""></a>
+      <figure>
+        <img src="images/galerija/03.jpg" alt="Pogled u unutrašnje stranice knjige" loading="lazy">
+        <figcaption>Unutrašnje stranice</figcaption>
       </figure>
-
-      <figure class="card">
-        <a href="./images/skica4.png"><img src="./images/skica4.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica5.png"><img src="./images/skica5.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica6.png"><img src="./images/skica6.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica7.png"><img src="./images/skica7.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica8.png"><img src="./images/skica8.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica9.png"><img src="./images/skica9.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica10.png"><img src="./images/skica10.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica11.png"><img src="./images/skica11.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica12.png"><img src="./images/skica12.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica13.png"><img src="./images/skica13.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica14.png"><img src="./images/skica14.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica15.png"><img src="./images/skica15.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica16.png"><img src="./images/skica16.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica17.png"><img src="./images/skica17.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica18.png"><img src="./images/skica18.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica19.png"><img src="./images/skica19.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica20.png"><img src="./images/skica20.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica21.png"><img src="./images/skica21.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica22.png"><img src="./images/skica22.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica23.png"><img src="./images/skica23.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica24.png"><img src="./images/skica24.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica25.png"><img src="./images/skica25.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica26.png"><img src="./images/skica26.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica27.png"><img src="./images/skica27.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica28.png"><img src="./images/skica28.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica29.png"><img src="./images/skica29.png" loading="lazy" alt=""></a>
-      </figure>
-
-      <figure class="card">
-        <a href="./images/skica30.png"><img src="./images/skica30.png" loading="lazy" alt=""></a>
-      </figure>
-    </section>
+    </div>
   </main>
 
   <footer>
-    © 2025 Marjan Mitrović — Sva prava zadržana · <a href="./index.html">Početna</a>
+    <p>&copy; 2025 Marjan Mitrović. Sva prava zadržana.</p>
   </footer>
 </body>
 </html>

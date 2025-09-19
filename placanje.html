@@ -1,394 +1,147 @@
-<!-- =========================
-File: placanje.html (SR)
-========================= -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plaćanje i preuzimanje — Novo ropstvo</title>
-  <link rel="icon" href="/favicon.ico" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo ropstvo — Uplata i preuzimanje</title>
+  <link rel="icon" href="images/favicon.png">
   <style>
-    :root{--bg:#0b0b0b;--fg:#e6e6e6;--muted:#9aa0a6;--accent:#c0ff5a;--danger:#ff5a5a;--card:#151515;}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
-    .wrap{max-width:900px;margin:0 auto;padding:24px;}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .badge{background:var(--card);border:1px solid #222;padding:2px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
-    .lang{display:flex;gap:8px}
-    .lang a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px;border:1px solid #242424}
-    .lang a.active,.lang a:hover{color:var(--fg);border-color:#3a3a3a}
-    h1{font-size:28px;margin:8px 0 4px}
-    p{color:var(--muted);line-height:1.6}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:20px}
-    .card{background:var(--card);border:1px solid #1f1f1f;border-radius:16px;padding:18px}
-    label{display:block;margin:12px 0 6px;color:#cbd5e1}
-    input,select,button,textarea{width:100%;background:#111;border:1px solid #2a2a2a;color:var(--fg);border-radius:10px;padding:10px}
-    button{cursor:pointer;background:linear-gradient(180deg,#1f1f1f,#141414);border:1px solid #2c2c2c}
-    button.primary{background:linear-gradient(180deg,#a0f12e,#78c51f);color:#0a0a0a;border:0;font-weight:600}
-    .hint{font-size:13px;color:var(--muted)}
-    .success{padding:12px;border:1px solid #2c4020;background:#122012;border-radius:12px;color:#d3f9a5}
-    .error{padding:12px;border:1px solid #402020;background:#201212;border-radius:12px;color:#ffb3b3}
-    .paylist li{margin-bottom:6px}
-    .qr{display:flex;gap:14px;align-items:center}
-    .qr img{width:120px;height:auto;border-radius:8px;border:1px solid #2a2a2a}
-    .muted{color:var(--muted)}
-    .foot{margin-top:28px;font-size:12px;color:var(--muted)}
-    .small{font-size:12px}
-  </style>
+
+    :root{{
+      --brand:#0a62c9; /* kao na live sajtu */
+      --text:#121212;
+      --muted:#555;
+      --border:#e6e6e6;
+      --bg:#ffffff;
+    }}
+
+
+*{{box-sizing:border-box}}
+body{{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;margin:0;line-height:1.6;color:var(--text);background:var(--bg)}}
+header,main,footer{{max-width:980px;margin:0 auto;padding:16px}}
+header{{display:flex;gap:12px;align-items:center;justify-content:space-between}}
+nav a{{margin-right:12px;text-decoration:none;color:var(--brand)}}
+nav a[aria-current="page"]{{text-decoration:underline}}
+footer{{border-top:1px solid var(--border);color:var(--muted)}}
+
+[hidden]{{display:none !important}}
+.langswitch{{display:flex;gap:8px;margin:6px 0 16px}}
+.langswitch button{{padding:6px 10px;border-radius:10px;border:1px solid #ccc;background:#f8f8f8;cursor:pointer}}
+.langswitch button:disabled{{background:var(--brand);border-color:var(--brand);color:#fff;cursor:default}}
+form label{{display:block;margin:10px 0 4px}}
+input,button{{font:inherit}}
+input{{padding:10px;border-radius:10px;border:1px solid #ccc;min-width:260px}}
+button{{padding:10px 16px;border-radius:12px;border:1px solid var(--brand);background:var(--brand);color:#fff;cursor:pointer}}
+.hint{{color:var(--muted);font-size:14px}}
+
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <span class="badge">Novo ropstvo</span>
-        <span class="muted">/ Plaćanje i preuzimanje</span>
-      </div>
-      <nav class="lang" aria-label="Language switcher">
-        <a href="/placanje.html" class="active">SR</a>
-        <a href="/placanje_en.html">EN</a>
-        <a href="/placanje_cz.html">CZ</a>
-      </nav>
-    </header>
+  <header>
+    <a href="index.html" aria-label="Početna"><strong>NOVO ROPSTVO</strong></a>
+    <nav aria-label="Glavna navigacija">
+      <a href="index.html">Početna</a>
+      <a href="galerija.html">Galerija</a>
+      <a href="odlomak.html">Odlomak</a>
+      <a href="placanje.html#sr" aria-current="page">Uplata</a>
+    </nav>
+  </header>
 
-    <h1>Uplata i preuzimanje EPUB izdanja</h1>
-    <p>Jednokratna uplata <strong>399 RSD</strong>. Nakon uplate unesite kod ispod i preuzmite knjigu na izabranom jeziku.</p>
+  <main>
+    <nav class="langswitch" aria-label="Language switch">
+      <button type="button" data-switch-lang="sr">SR</button>
+      <button type="button" data-switch-lang="en">EN</button>
+      <button type="button" data-switch-lang="cz">CZ</button>
+    </nav>
 
-    <div class="grid">
-      <!-- LEFT: form -->
-      <section class="card">
-        <form id="downloadForm" onsubmit="return verify(event)">
-          <input type="hidden" id="lang" name="lang" value="sr" />
+    <section data-lang="sr">
+      <h1>Uplata i preuzimanje EPUB izdanja</h1>
+      <form id="dl-sr">
+        <label for="kod-sr">Unesite kod</label>
+        <input id="kod-sr" name="kod" required autocomplete="one-time-code" inputmode="latin">
+        <label for="email-sr">Email (opciono)</label>
+        <input id="email-sr" name="email" type="email" placeholder="vas@email.com">
+        <button type="submit">Preuzmi EPUB</button>
+      </form>
+      <p class="hint">Ako dobijete grešku 404, proverite da li je kod važeći i da li je link ka EPUB fajlu dostupan.</p>
 
-          <label for="kod">Unesite kod</label>
-          <input id="kod" name="kod" placeholder="ABC123" required />
+      <h3>Kako platiti (399 RSD)</h3>
+      <ul>
+        <li><strong>Bankovni transfer</strong><br>Primalac: Marjan Mitrović • IBAN: CZxx xxxx xxxx • Svrha: NOVO ROPSTVO</li>
+        <li><strong>Paysend</strong> (dinari → CZK) — uplata na isti IBAN; konverzija je automatska.</li>
+      </ul>
+    </section>
 
-          <label for="email">Email (opciono)</label>
-          <input id="email" name="email" type="email" placeholder="ime@domen.com" />
+    <section data-lang="en" hidden>
+      <h1>Payment & Download the EPUB Edition</h1>
+      <form id="dl-en">
+        <label for="code-en">Enter your code</label>
+        <input id="code-en" name="code" required autocomplete="one-time-code">
+        <label for="email-en">Email (optional)</label>
+        <input id="email-en" name="email" type="email" placeholder="you@example.com">
+        <button type="submit">Download EPUB</button>
+      </form>
+      <p class="hint">If you get a 404, ensure your code is valid and the EPUB link is accessible.</p>
+    </section>
 
-          <button type="submit" class="primary" style="margin-top:12px">Preuzmi EPUB</button>
-          <p class="hint small">Kod važi 48h od izdavanja. Svaki kod omogućava jedno preuzimanje.</p>
-        </form>
-        <div id="result" style="margin-top:14px"></div>
-      </section>
+    <section data-lang="cz" hidden>
+      <h1>Platba a stažení EPUB vydání</h1>
+      <form id="dl-cz">
+        <label for="kod-cz">Zadejte kód</label>
+        <input id="kod-cz" name="kod" required autocomplete="one-time-code">
+        <label for="email-cz">E-mail (volitelné)</label>
+        <input id="email-cz" name="email" type="email" placeholder="vy@example.com">
+        <button type="submit">Stáhnout EPUB</button>
+      </form>
+      <h3>Jak zaplatit (399 RSD)</h3>
+      <ul>
+        <li><strong>Bankovní převod</strong><br>Příjemce: Marjan Mitrović • IBAN: CZxx xxxx xxxx • <strong>Účel: NOVÉ OTROCTVÍ</strong></li>
+        <li><strong>Paysend</strong> (RSD → CZK) — převod na stejný IBAN; konverze je automatická.</li>
+      </ul>
+    </section>
+  </main>
 
-      <!-- RIGHT: payment options -->
-      <aside class="card">
-        <h3 style="margin-top:0">Kako platiti (399 RSD)</h3>
-        <ul class="paylist">
-          <li><strong>Bank transfer (SR)</strong><br/><span class="small muted">Primalac: Marjan Mitrović • IBAN: CZxx xxxx xxxx • Svrha: NOVO ROPSTVO</span></li>
-          <li><strong>Paysend (dinari → CZK)</strong><br/><span class="small muted">Uplatite u dinarima na isti IBAN; iznos se automatski konvertuje u CZK.</span></li>
-          <li class="qr">
-            <img src="images/barkod.png" alt="QR kod za plaćanje" />
-            <span class="small muted">Skenirajte QR kod za brzu uplatu. Nakon potvrde, dobićete <em>kod</em> za preuzimanje.</span>
-          </li>
-        </ul>
-      </aside>
-    </div>
+  <footer>
+    <p>&copy; 2025 Marjan Mitrović. Sva prava zadržana.</p>
+  </footer>
 
-    <p class="foot">Treba pomoć? Pišite: <a href="mailto:marjan.posao@gmail.com">marjan.posao@gmail.com</a></p>
-  </div>
-
- <script>
-  // ostavi svoj postojeći URL ovde:
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyv7EARAxNQyerb5NxIifCDMnDa3dzihsarYl8C-6vu2Q2f-6ltEN1urnx8PxykHMiuvA/exec";
-
-  // pomoćne
-  function showErr(msg){ document.getElementById('result').innerHTML = `<div class="error">❌ ${msg}</div>`; }
-  function showHtml(html){ document.getElementById('result').innerHTML = html; }
-
-  // detekcija jezika stranice (fallback)
-  function detectPageLang(){
-    // 1) hidden input lang (ako postoji)
-    const hid = document.getElementById('lang');
-    if (hid && hid.value) return String(hid.value).toLowerCase();
-    // 2) <html lang="...">
-    const htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
-    if (htmlLang.startsWith('en')) return 'en';
-    if (htmlLang.startsWith('cs') || htmlLang.startsWith('cz')) return 'cz';
-    if (htmlLang.startsWith('sr') || htmlLang.startsWith('sh')) return 'sr';
-    // 3) naziv fajla
-    const p = window.location.pathname;
-    if (p.includes('placanje_en')) return 'en';
-    if (p.includes('placanje_cz')) return 'cz';
-    return 'sr';
-  }
-
-  async function verify(ev){
-    if(ev) ev.preventDefault();
-    const codeEl = document.getElementById('kod');
-    const emailEl = document.getElementById('email');
-    const langEl  = document.getElementById('lang');
-
-    const code = (codeEl?.value || '').trim();
-    let lang = (langEl?.value || '').trim().toLowerCase();
-    if (!lang) lang = detectPageLang();   // fallback na jezik stranice
-
-    const email = (emailEl?.value || '').trim();
-    if(!code){ showErr(lang==='en' ? 'Enter your code.' : (lang==='cz' ? 'Zadejte kód.' : 'Unesite kod.')); return false; }
-
-    // opcioni IP – ne kritično; ako propadne, nastavljamo
-    let clientIP = '';
-    try {
-      const r = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' });
-      const j = await r.json(); clientIP = j.ip || '';
-    } catch (_) {}
-
-    try{
-      // prosleđujemo i referer = trenutna putanja stranice, da server zna sa kog jezika je došlo
-      const qs = new URLSearchParams({
-        kod: code,
-        lang,
-        email,
-        ip: clientIP,
-        referer: window.location.pathname
-      }).toString();
-
-      const res = await fetch(`${WEB_APP_URL}?${qs}`, { method: 'GET' });
-      const text = await res.text();
-      if(!res.ok){
-        showErr(`HTTP ${res.status}: ${text || 'Greška na serveru'}`);
-        return false;
-      }
-      showHtml(text);
-    }catch(err){
-      showErr((lang==='en' ? 'Connection error: ' : (lang==='cz' ? 'Chyba připojení: ' : 'Greška u konekciji: ')) + (err?.message || err));
-    }
-    return false;
-  }
-</script>
-
-</body>
-</html>
-
-
-<!-- =============================
-File: placanje_en.html (EN)
-============================= -->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Payment & Download — New Slavery</title>
-  <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{--bg:#0b0b0b;--fg:#e6e6e6;--muted:#9aa0a6;--accent:#c0ff5a;--danger:#ff5a5a;--card:#151515;}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
-    .wrap{max-width:900px;margin:0 auto;padding:24px;}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .badge{background:var(--card);border:1px solid #222;padding:2px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
-    .lang{display:flex;gap:8px}
-    .lang a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px;border:1px solid #242424}
-    .lang a.active,.lang a:hover{color:var(--fg);border-color:#3a3a3a}
-    h1{font-size:28px;margin:8px 0 4px}
-    p{color:var(--muted);line-height:1.6}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:20px}
-    .card{background:var(--card);border:1px solid #1f1f1f;border-radius:16px;padding:18px}
-    label{display:block;margin:12px 0 6px;color:#cbd5e1}
-    input,select,button,textarea{width:100%;background:#111;border:1px solid #2a2a2a;color:var(--fg);border-radius:10px;padding:10px}
-    button{cursor:pointer;background:linear-gradient(180deg,#1f1f1f,#141414);border:1px solid #2c2c2c}
-    button.primary{background:linear-gradient(180deg,#a0f12e,#78c51f);color:#0a0a0a;border:0;font-weight:600}
-    .hint{font-size:13px;color:var(--muted)}
-    .success{padding:12px;border:1px solid #2c4020;background:#122012;border-radius:12px;color:#d3f9a5}
-    .error{padding:12px;border:1px solid #402020;background:#201212;border-radius:12px;color:#ffb3b3}
-    .paylist li{margin-bottom:6px}
-    .qr{display:flex;gap:14px;align-items:center}
-    .qr img{width:120px;height:auto;border-radius:8px;border:1px solid #2a2a2a}
-    .muted{color:var(--muted)}
-    .foot{margin-top:28px;font-size:12px;color:var(--muted)}
-    .small{font-size:12px}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <span class="badge">New Slavery</span>
-        <span class="muted">/ Payment & download</span>
-      </div>
-      <nav class="lang" aria-label="Language switcher">
-        <a href="/placanje.html">SR</a>
-        <a href="/placanje_en.html" class="active">EN</a>
-        <a href="/placanje_cz.html">CZ</a>
-      </nav>
-    </header>
-
-    <h1>Pay & download the EPUB edition</h1>
-    <p>One-time payment <strong>399 RSD</strong>. After payment, enter your code to download the book in English.</p>
-
-    <div class="grid">
-      <!-- LEFT: form -->
-      <section class="card">
-        <form id="downloadForm" onsubmit="return verify(event)">
-          <input type="hidden" id="lang" name="lang" value="en" />
-
-          <label for="kod">Enter your code</label>
-          <input id="kod" name="kod" placeholder="ABC123" required />
-
-          <label for="email">Email (optional)</label>
-          <input id="email" name="email" type="email" placeholder="name@example.com" />
-
-          <button type="submit" class="primary" style="margin-top:12px">Download EPUB</button>
-          <p class="hint small">Codes are valid for 48h and allow one download.</p>
-        </form>
-        <div id="result" style="margin-top:14px"></div>
-      </section>
-
-      <!-- RIGHT: payment options -->
-      <aside class="card">
-        <h3 style="margin-top:0">How to pay (399 RSD)</h3>
-        <ul class="paylist">
-          <li><strong>Bank transfer</strong><br/><span class="small muted">Recipient: Marjan Mitrović • IBAN: CZxx xxxx xxxx • Purpose: NEW SLAVERY</span></li>
-          <li><strong>Paysend</strong><br/><span class="small muted">You can pay in RSD to the same IBAN; it converts to CZK automatically.</span></li>
-          <li class="qr">
-            <img src="images/barkod.png" alt="QR code" />
-            <span class="small muted">Scan the QR to pay. You'll receive a <em>code</em> to download.</span>
-          </li>
-        </ul>
-      </aside>
-    </div>
-
-    <p class="foot">Need help? Write to <a href="mailto:marjan.posao@gmail.com">marjan.posao@gmail.com</a></p>
-  </div>
-
+  <script src="config.js"></script>
   <script>
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzKBoAMr48twIo_QZN746rbbOCLnJasfLzN76wRuuCw84RSRgjc7K6A9udgXkCEbdJidw/exec";
-    let clientIP = "";
-    (async ()=>{ try{ const r=await fetch('https://api.ipify.org?format=json'); const j=await r.json(); clientIP=j.ip||""; }catch(_){}})();
-    function showErr(msg){ document.getElementById('result').innerHTML = `<div class="error">❌ ${msg}</div>`; }
-    function showHtml(html){ document.getElementById('result').innerHTML = html; }
-    async function verify(ev){
-      if(ev) ev.preventDefault();
-      const code = (document.getElementById('kod').value||'').trim();
-      const lang = document.getElementById('lang').value;
-      const email = (document.getElementById('email')?.value||'').trim();
-      if(!code){ showErr('Enter your code.'); return false; }
-      try{
-        const qs = new URLSearchParams({ kod: code, lang, email, ip: clientIP }).toString();
-        const res = await fetch(`${WEB_APP_URL}?${qs}`);
-        const html = await res.text();
-        showHtml(html);
-      }catch(e){ showErr('Connection error.'); }
-      return false;
+  (function(){
+    const LSKEY = "nr_lang";
+    const sections = Array.from(document.querySelectorAll('[data-lang]'));
+    const buttons  = Array.from(document.querySelectorAll('[data-switch-lang]'));
+    function show(lang){
+      sections.forEach(s=>s.hidden = s.dataset.lang !== lang);
+      buttons.forEach(b=>b.disabled = b.dataset.switchLang === lang);
+      try{ localStorage.setItem(LSKEY, lang); }catch(e){}
+      if(location.hash !== '#'+lang) history.replaceState(null, '', '#'+lang);
     }
+    const initial = (location.hash||'').replace('#','') || (localStorage.getItem(LSKEY)||'sr');
+    show(/^(sr|en|cz)$/.test(initial) ? initial : 'sr');
+    buttons.forEach(b=>b.addEventListener('click', ()=>show(b.dataset.switchLang)));
+  })();
   </script>
-</body>
-</html>
-
-
-<!-- =============================
-File: placanje_cz.html (CZ)
-============================= -->
-<!doctype html>
-<html lang="cs">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Platba a stažení — Nové otroctví</title>
-  <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{--bg:#0b0b0b;--fg:#e6e6e6;--muted:#9aa0a6;--accent:#c0ff5a;--danger:#ff5a5a;--card:#151515;}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
-    .wrap{max-width:900px;margin:0 auto;padding:24px;}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .badge{background:var(--card);border:1px solid #222;padding:2px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
-    .lang{display:flex;gap:8px}
-    .lang a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px;border:1px solid #242424}
-    .lang a.active,.lang a:hover{color:var(--fg);border-color:#3a3a3a}
-    h1{font-size:28px;margin:8px 0 4px}
-    p{color:var(--muted);line-height:1.6}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:20px}
-    .card{background:var(--card);border:1px solid #1f1f1f;border-radius:16px;padding:18px}
-    label{display:block;margin:12px 0 6px;color:#cbd5e1}
-    input,select,button,textarea{width:100%;background:#111;border:1px solid #2a2a2a;color:var(--fg);border-radius:10px;padding:10px}
-    button{cursor:pointer;background:linear-gradient(180deg,#1f1f1f,#141414);border:1px solid #2c2c2c}
-    button.primary{background:linear-gradient(180deg,#a0f12e,#78c51f);color:#0a0a0a;border:0;font-weight:600}
-    .hint{font-size:13px;color:var(--muted)}
-    .success{padding:12px;border:1px solid #2c4020;background:#122012;border-radius:12px;color:#d3f9a5}
-    .error{padding:12px;border:1px solid #402020;background:#201212;border-radius:12px;color:#ffb3b3}
-    .paylist li{margin-bottom:6px}
-    .qr{display:flex;gap:14px;align-items:center}
-    .qr img{width:120px;height:auto;border-radius:8px;border:1px solid #2a2a2a}
-    .muted{color:var(--muted)}
-    .foot{margin-top:28px;font-size:12px;color:var(--muted)}
-    .small{font-size:12px}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <span class="badge">Nové otroctví</span>
-        <span class="muted">/ Platba a stažení</span>
-      </div>
-      <nav class="lang" aria-label="Přepínač jazyka">
-        <a href="/placanje.html">SR</a>
-        <a href="/placanje_en.html">EN</a>
-        <a href="/placanje_cz.html" class="active">CZ</a>
-      </nav>
-    </header>
-
-    <h1>Platba a stažení EPUB vydání</h1>
-    <p>Jednorázová platba <strong>399 RSD</strong>. Po platbě zadejte kód a stáhněte si knihu v češtině.</p>
-
-    <div class="grid">
-      <!-- LEFT: form -->
-      <section class="card">
-        <form id="downloadForm" onsubmit="return verify(event)">
-          <input type="hidden" id="lang" name="lang" value="cz" />
-
-          <label for="kod">Zadejte kód</label>
-          <input id="kod" name="kod" placeholder="ABC123" required />
-
-          <label for="email">E-mail (volitelné)</label>
-          <input id="email" name="email" type="email" placeholder="jmeno@domena.cz" />
-
-          <button type="submit" class="primary" style="margin-top:12px">Stáhnout EPUB</button>
-          <p class="hint small">Kód platí 48 hodin a umožňuje jedno stažení.</p>
-        </form>
-        <div id="result" style="margin-top:14px"></div>
-      </section>
-
-      <!-- RIGHT: payment options -->
-      <aside class="card">
-        <h3 style="margin-top:0">Jak zaplatit (399 RSD)</h3>
-        <ul class="paylist">
-          <li><strong>Bankovní převod</strong><br/><span class="small muted">Příjemce: Marjan Mitrović • IBAN: CZxx xxxx xxxx • Účel: NOVE OTROCTVÍ</span></li>
-          <li><strong>Paysend</strong><br/><span class="small muted">Můžete zaplatit v RSD na stejný IBAN; částka se automaticky převede na CZK.</span></li>
-          <li class="qr">
-            <img src="images/barkod.png" alt="QR kód" />
-            <span class="small muted">Naskenujte QR kód. Po potvrzení obdržíte <em>kód</em> ke stažení.</span>
-          </li>
-        </ul>
-      </aside>
-    </div>
-
-    <p class="foot">Potřebujete pomoc? Napište: <a href="mailto:marjan.posao@gmail.com">marjan.posao@gmail.com</a></p>
-  </div>
 
   <script>
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyv7EARAxNQyerb5NxIifCDMnDa3dzihsarYl8C-6vu2Q2f-6ltEN1urnx8PxykHMiuvA/exec";
-    let clientIP = "";
-    (async ()=>{ try{ const r=await fetch('https://api.ipify.org?format=json'); const j=await r.json(); clientIP=j.ip||""; }catch(_){}})();
-    function showErr(msg){ document.getElementById('result').innerHTML = `<div class=\"error\">❌ ${msg}</div>`; }
-    function showHtml(html){ document.getElementById('result').innerHTML = html; }
-    async function verify(ev){
-      if(ev) ev.preventDefault();
-      const code = (document.getElementById('kod').value||'').trim();
-      const lang = document.getElementById('lang').value;
-      const email = (document.getElementById('email')?.value||'').trim();
-      if(!code){ showErr('Zadejte kód.'); return false; }
-      try{
-        const qs = new URLSearchParams({ kod: code, lang, email, ip: clientIP }).toString();
-        const res = await fetch(`${WEB_APP_URL}?${qs}`);
+  async function verifyForm(formId){
+    const form = document.getElementById(formId);
+    if(!form) return;
+    form.addEventListener("submit", async (ev)=>{
+      ev.preventDefault();
+      const data = new FormData(form);
+      const kod   = data.get("kod") || data.get("code");
+      const email = data.get("email") || "";
+      try {
+        const res  = await fetch(window.NR_WEB_APP_URL + "?kod=" + encodeURIComponent(kod) + "&email=" + encodeURIComponent(email));
         const html = await res.text();
-        showHtml(html);
-      }catch(e){ showErr('Chyba připojení.'); }
-      return false;
-    }
+        document.body.innerHTML = html;
+      } catch(err) {
+        alert("❌ Greška u konekciji: " + err.message);
+      }
+    });
+  }
+  ["dl-sr","dl-en","dl-cz"].forEach(verifyForm);
   </script>
 </body>
 </html>
