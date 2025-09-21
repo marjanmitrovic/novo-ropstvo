@@ -1,123 +1,82 @@
-<!-- kontakt_cz.html (CZ) — uklonjen dupli script, ostavljen samo v=3 -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta property="og:title" content="Novo Ropstvo — roman o modernom radu">
-<meta property="og:description" content="Društveno angažovan roman o modernim oblicima eksploatacije rada.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://novo-ropstvo.github.io/novo-ropstvo/">
-<meta property="og:image" content="https://novo-ropstvo.github.io/novo-ropstvo/images/cover.jpg">
-<meta name="twitter:card" content="summary_large_image">
-
-<meta charset="utf-8">
-<meta property="og:title" content="Kontakt — Novo Ropstvo">
-<meta property="og:description" content="Kontaktujte autora knihy Novo Ropstvo.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://novo-ropstvo.github.io/novo-ropstvo/kontakt_cz.html">
-<meta property="og:image" content="https://novo-ropstvo.github.io/novo-ropstvo/images/cover.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kontakt — Novo Ropstvo</title>
-<meta name="description" content="Kontaktujte autora knihy Novo Ropstvo.">
-<link rel="canonical" href="./kontakt_cz.html">
-<link rel="alternate" hreflang="sr" href="./kontakt.html">
-<link rel="alternate" hreflang="en" href="./kontakt_en.html">
-<script src="./js/lang-switcher.js?v=3" defer></script>
-<style>
-:root{--max:720px}*{box-sizing:border-box}body{margin:0;background:#0b0f12;color:#e8e8e8;font:16px/1.5 system-ui,Segoe UI,Roboto,Arial,sans-serif}
-.wrap{max-width:var(--max);margin:0 auto;padding:24px}
-h1{margin:8px 0 16px;font-size:clamp(22px,3vw,32px)}
-.card{background:#10161c;border:1px solid #1f2a33;border-radius:14px;padding:16px;margin:12px 0}
-label{display:block;margin:8px 0 4px}
-input,textarea,button{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #2a3945;background:#0f1419;color:#e8e8e8}
-textarea{min-height:160px;resize:vertical}
-button{cursor:pointer}
-.row{display:grid;gap:12px}@media(min-width:640px){.row{grid-template-columns:1fr 1fr}}
-.msg{margin-top:10px;font-size:14px}
-.nav a{margin-right:14px;opacity:.9;text-decoration:none}.nav a:hover{opacity:1;text-decoration:underline}
-header,footer{max-width:var(--max);margin:0 auto;padding:16px}
-.note{opacity:.8;font-size:14px}
-.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-</style>
+  <meta charset="utf-8" />
+  <title>Kontakt — Nové otroctví</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, sans-serif; margin:0; padding:20px; background:#111214; color:#e6e7e9; }
+    form { display:flex; flex-direction:column; gap:12px; }
+    label { font-weight:600; }
+    input, textarea { width:100%; padding:10px; border-radius:8px; border:1px solid #333; background:#1a1a1a; color:#fff; }
+    button { padding:10px 16px; border:none; border-radius:8px; font-weight:600; background:#0ea5e9; color:#fff; cursor:pointer; }
+    button:hover { background:#0284c7; }
+    .muted { color:#9aa0a6; font-size:.9rem; }
+    label.required::after { content:" *"; color:#ef4444; font-weight:700; }
+    button.is-loading{position:relative; opacity:.85}
+    button.is-loading::after{
+      content:""; position:absolute; right:12px; top:50%; width:14px; height:14px; margin-top:-7px;
+      border:2px solid rgba(255,255,255,.6); border-top-color:transparent; border-radius:50%;
+      animation:spin .8s linear infinite
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .error{color:#ff7b72; font-size:.95rem}
+  </style>
 </head>
 <body>
-<header>
-  <nav class="nav">
-    <a href="./index_cz.html">Domů</a>
-    <a href="./galerija_cz.html">Galerie</a>
-    <a href="./placanje_cz.html">Platba</a>
-    <a href="./kontakt_cz.html" aria-current="page">Kontakt</a>
-  </nav>
+  <h2>Kontaktní formulář</h2>
+  <form id="contact-form" action="https://formspree.io/f/xyzpljrg" method="POST" novalidate>
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
-  <nav style="position:fixed;top:12px;right:16px;display:flex;gap:10px;font-size:14px">
-    <a href="#" data-lang="sr" title="Srpsky">SR</a>
-    <a href="#" data-lang="en" title="Anglicky">EN</a>
-    <a href="#" data-lang="cz" title="Česky">CZ</a>
-  </nav>
-</header>
+    <label for="name" class="required">Jméno a příjmení</label>
+    <input id="name" name="name" type="text" required>
 
-<main class="wrap">
-  <h1>Kontakt</h1>
-  <div class="card">
-    <form id="contactForm">
-      <div class="row">
-        <div>
-          <label>Jméno</label>
-          <input name="name" placeholder="Vaše jméno" required>
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" placeholder="vy@email.com" required>
-        </div>
-      </div>
-      <label>Zpráva</label>
-      <textarea name="message" placeholder="Napište zprávu…" required></textarea>
+    <label for="email" class="required">E-mail</label>
+    <input id="email" name="email" type="email" required>
 
-      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off">
+    <label for="message" class="required">Zpráva</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
 
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-        <button type="submit">Odeslat</button>
-        <a id="mailto" href="#" class="note" style="align-self:center">…nebo poslat z e‑mailového klienta</a>
-      </div>
-      <div class="msg" id="msg"></div>
-    </form>
-    <p class="note">Odpovíme co nejdříve. Povinná pole jsou označena *.</p>
-  </div>
-</main>
+    <p class="muted">Pole označená <strong>*</strong> jsou povinná.</p>
 
-<footer>© 2025 Marjan Mitrović — Všechna práva vyhrazena</footer>
+    <button id="submit" type="submit" aria-live="polite">Odeslat</button>
+    <div id="err" class="error" role="alert" style="display:none"></div>
+  </form>
 
-<script>
-window.FORMSPREE_URL = "https://formspree.io/f/xyzpljrg";
+  <script>
+    const form = document.getElementById('contact-form');
+    const btn  = document.getElementById('submit');
+    const err  = document.getElementById('err');
 
-const f=document.getElementById('contactForm');
-const m=document.getElementById('msg');
-const mailto=document.getElementById('mailto');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      err.style.display = 'none';
+      btn.classList.add('is-loading');
+      btn.disabled = true;
+      btn.textContent = 'Odesílám…';
 
-function setMailto(){
-  const d=new FormData(f);
-  const from=(d.get('email')||'').trim();
-  const name=(d.get('name')||'').trim();
-  const body=(d.get('message')||'').trim();
-  const subj=encodeURIComponent("Zpráva ze stránek — Novo Ropstvo");
-  const txt =encodeURIComponent(`Jméno: ${name}\nEmail: ${from}\n\n${body}`);
-  mailto.href=`mailto:marjan.posao@gmail.com?subject=${subj}&body=${txt}`;
-}
-['input','change'].forEach(ev=>f.addEventListener(ev,setMailto)); setMailto();
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
 
-f.addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  m.textContent="⏳ Odesílání…";
-  const data=new FormData(f);
-  if(data.get('_gotcha')){ m.textContent="❌ Chyba."; return; }
-  const endpoint=(window.FORMSPREE_URL||"").trim();
-  if(!endpoint){ m.textContent="✉️ Formspree zatím není připojen. Použijte odkaz výše."; return; }
-  try{
-    const r=await fetch(endpoint,{method:"POST",body:data,headers:{"Accept":"application/json"}});
-    if(r.ok){ m.textContent="✅ Odesláno. Děkujeme!"; f.reset(); setMailto(); }
-    else{ const t=await r.json().catch(()=>({})); m.textContent=t?.error||"❌ Nelze odeslat. Zkuste později."; }
-  }catch{ m.textContent="❌ Síťová chyba. Zkuste znovu."; }
-});
-</script>
+        if (res.ok) {
+          window.location.href = 'dekujeme.html';
+        } else {
+          const j = await res.json().catch(()=>({}));
+          throw new Error(j.errors?.map(e=>e.message).join(', ') || 'Něco se pokazilo. Zkuste to prosím znovu.');
+        }
+      } catch (e2) {
+        err.textContent = e2.message || 'Něco se pokazilo. Zkuste to prosím znovu.';
+        err.style.display = 'block';
+        btn.classList.remove('is-loading');
+        btn.disabled = false;
+        btn.textContent = 'Odeslat';
+      }
+    });
+  </script>
 </body>
 </html>

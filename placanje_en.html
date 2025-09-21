@@ -4,41 +4,36 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>New Slavery — Payment</title>
-  <meta name="description" content="Payment for the EPUB edition of the novel New Slavery — via Paysend app (account number) or IBAN transfer." />
+  <meta name="description" content="Payment for the EPUB edition — Paysend, bank transfer, QR." />
   <link rel="icon" href="images/CoverEN.png" />
   <style>
     *,*::before,*::after{box-sizing:border-box}
-    :root{--bg:#f8f8f8;--text:#1a1a1a;--muted:#6b7280;--card:#fff;--border:#e5e7eb}
-    html.dark{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a}
-    body{margin:0;font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial; background:var(--bg); color:var(--text); line-height:1.7; position:relative;}
-    body::before{content:"";position:fixed;inset:0;background:url('images/CoverEN.png') center/contain no-repeat;opacity:.05;z-index:0}
-    .container{width:min(900px,92vw);margin:0 auto;position:relative;z-index:1}
-    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
+    :root{--bg:#f8f8f8;--text:#1a1a1a;--muted:#6b7280;--card:#fff;--border:#e5e7eb;--accent:#0ea5e9}
+    html.dark{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a;--accent:#38bdf8}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;background:var(--bg);color:var(--text);line-height:1.7}
+    .container{width:min(900px,92vw);margin:0 auto}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
     .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
     .nav-actions{display:flex;align-items:center;gap:10px}
     .btn,.chip{border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-weight:600;text-decoration:none}
-    .btn{background:#111827;color:#fff}
-    .btn-outline{background:var(--card);color:var(--text)}
-    .chip{background:var(--card);color:var(--text)}
-    .chip[aria-current="true"]{border-color:var(--text)}
+    .btn{background:#111827;color:#fff}.btn-outline{background:var(--card);color:var(--text)}
     main{padding:28px 0 48px}
-    h1{font-size:28px;margin:0 0 8px}
-    .lede{color:var(--muted);margin-bottom:18px}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.12)}
     @media(min-width:860px){.half{grid-column:span 6}}
-    .list{margin:0;padding-left:18px}
-    label{display:block;font-weight:600;margin:.6rem 0 .2rem}
-    input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)}
+    .muted{color:var(--muted)}
     footer{border-top:1px solid var(--border);padding:24px 0;margin-top:40px;text-align:center;color:var(--muted)}
+    @media (prefers-reduced-motion:no-preference){.btn,.btn-outline,.chip,.card,img.fx-tilt{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}}
+    .btn:hover,.btn-outline:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.25)}
+    img.fx-tilt:hover{transform:perspective(600px) rotateX(2.5deg) rotateY(-3deg) translateY(-2px);box-shadow:0 16px 30px rgba(0,0,0,.35)}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a href="index_en.html"><img src="images/CoverEN.png" alt="Cover small" style="height:48px;border-radius:6px"></a>
+      <a href="index_en.html"><img src="images/CoverEN.png" alt="Cover" style="height:48px;border-radius:6px"></a>
       <div class="nav-actions">
-        <nav aria-label="Language" class="lang-switch" style="display:flex;gap:6px">
+        <nav aria-label="Language" style="display:flex;gap:6px">
           <a class="chip" href="placanje.html" lang="sr">SR</a>
           <a class="chip" href="placanje_en.html" lang="en" aria-current="true">EN</a>
           <a class="chip" href="placanje_cz.html" lang="cs">CZ</a>
@@ -49,60 +44,55 @@
     </div>
   </header>
 
-<p class="lede">
-  Buy the <strong>digital edition of the book</strong> for your <em>phone, tablet, or e-reader</em> (EPUB format). 
-  The EPUB file can be opened on all modern devices with free reading apps.
-</p>
+  <main class="container">
+    <h1>Buy the EPUB edition</h1>
+    <p class="muted">After payment, you’ll receive a <strong>personalized EPUB copy</strong> with a watermark, delivered to your email.</p>
 
-    <section class="grid" aria-label="Payment methods">
+    <section class="grid" aria-label="Payment methods" style="margin-top:16px">
       <article class="card half">
-        <h3 style="margin-top:0">Paysend payment (account number)</h3>
-        <p class="muted">In the Paysend app, use the following account number:</p>
-        <ul class="list">
-          <li><strong>Recipient:</strong> Marjan Mitrović</li>
-          <li><strong>Purpose:</strong> New Slavery — EPUB</li>
+        <h3 style="margin-top:0">Paysend (recommended)</h3>
+        <ul>
+          <li><strong>Amount:</strong> €3.49</li>
           <li><strong>Account number:</strong> 3138469083/0800</li>
-          <li><strong>Amount:</strong> 3.49 EUR</li>
-        </ul>
-        <p class="muted">Paysend will automatically convert the payment to CZK.</p>
-      </article>
-
-      <article class="card half">
-        <h3 style="margin-top:0">Standard bank transfer (IBAN)</h3>
-        <p>For classic bank transfer, use the following IBAN:</p>
-        <ul class="list">
           <li><strong>Recipient:</strong> Marjan Mitrović</li>
-          <li><strong>Purpose:</strong> New Slavery — EPUB</li>
+          <li><em>Paysend uses the account number, not IBAN.</em></li>
+        </ul>
+      </article>
+      <article class="card half">
+        <h3 style="margin-top:0">Bank transfer (alternative)</h3>
+        <ul>
           <li><strong>IBAN:</strong> CZ59 0800 0000 0031 3846 9083</li>
           <li><strong>SWIFT/BIC:</strong> GIBACZPX</li>
-          <li><strong>Amount:</strong> 99 CZK</li>
+          <li><strong>Purpose:</strong> NEW SLAVERY — EPUB</li>
+          <li><strong>Amount:</strong> €3.49 (your bank converts to CZK)</li>
         </ul>
       </article>
     </section>
 
-    <section class="grid" style="margin-top:16px" aria-label="Paysend instructions">
+    <section class="grid" style="margin-top:16px" aria-label="QR payment">
       <article class="card">
-        <h3 style="margin-top:0">How to install Paysend</h3>
-        <p>To complete the payment, you need to install the <strong>Paysend</strong> app on your phone:</p>
-        <ol>
-          <li>Open <a href="https://play.google.com/store/apps/details?id=com.paysend.app" target="_blank">Google Play Store</a> (Android) or <a href="https://apps.apple.com/us/app/paysend-money-transfer-app/id1269789748" target="_blank">App Store</a> (iPhone).</li>
-          <li>Download and install the <em>Paysend</em> app.</li>
-          <li>Register with your phone number or e-mail address.</li>
-          <li>In the app, choose the option to send money and enter the account number or IBAN.</li>
-        </ol>
-        <p class="muted">After installation, the payment can be made quickly and securely directly from the app.</p>
+        <h3 style="margin-top:0">Pay by scanning the QR code</h3>
+        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+          <img class="fx-tilt" src="images/qrkod.jpg" alt="QR code" width="220" height="220" style="border:1px solid var(--border);border-radius:12px;background:#fff;padding:6px">
+          <p class="muted">Open your mobile banking app and scan the QR code. Payment details are filled in automatically.</p>
+        </div>
       </article>
     </section>
 
-    <section style="margin-top:24px" aria-label="EPUB delivery">
+    <section class="grid" style="margin-top:16px" aria-label="EPUB delivery">
       <article class="card">
-        <h3 style="margin-top:0">Where should we send your EPUB?</h3>
-        <form onsubmit="event.preventDefault(); alert('Thank you! Your EPUB will arrive after the payment is confirmed.');">
-          <label for="email">E-mail address</label>
-          <input id="email" name="email" type="email" required placeholder="your@email.com" />
+        <h3 style="margin-top:0">Where should we send the EPUB?</h3>
+        <form onsubmit="event.preventDefault(); alert('Thanks! The EPUB will arrive by email once your payment is confirmed.');">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" />
+          <label for="ref" style="margin-top:.6rem">Payment reference (optional)</label>
+          <input id="ref" name="ref" type="text" placeholder="e.g., date, last 4 digits, payer name" />
+          <p class="muted" style="margin-top:8px">
+            Once your payment is confirmed, <strong>your EPUB will be delivered by email</strong>. No codes or extra steps needed.
+          </p>
           <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
-            <button class="btn" type="submit">Submit</button>
-            <span class="muted">The EPUB will be sent after payment confirmation.</span>
+            <button class="btn" type="submit">Send</button>
+            <span class="muted">We’ll email the EPUB after confirming your payment.</span>
           </div>
         </form>
       </article>
@@ -110,8 +100,6 @@
   </main>
 
   <footer>© <span id="year"></span> New Slavery. All rights reserved.</footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>

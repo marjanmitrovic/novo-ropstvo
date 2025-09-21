@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>New Slavery — official site</title>
-  <meta name="description" content="Official site of the novel New Slavery. Excerpt, gallery, EPUB purchase." />
-  <link rel="icon" href="images/CoverEN.png" />
+  <meta name="description" content="Official site of the novel New Slavery. Excerpt, gallery, and EPUB purchase." />
+  <link rel="icon" href="images/cover-en.png" />
   <style>
     *,*::before,*::after{box-sizing:border-box}
     :root{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a;--accent:#38bdf8}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;background:var(--bg);color:var(--text);line-height:1.7}
-    a{color:var(--accent)}
+    a{color:var(--accent);text-decoration:none}
     .container{width:min(1000px,92vw);margin:0 auto}
     header{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
     .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
@@ -23,15 +23,35 @@
     .hero-img{grid-column:span 4}
     .hero-img img{max-width:100%;height:auto;border-radius:16px;border:1px solid var(--border);display:block}
     .hero-text{grid-column:span 8}
-    h1{font-size:32px;margin:0 0 10px}.lede{color:var(--muted);margin-bottom:16px}
-    .synopsis{color:var(--muted);font-size:.95rem;margin-top:8px;max-width:60ch}
+    h1{font-size:32px;margin:0 0 10px}
+    .lede{color:var(--muted);margin-bottom:16px}
+    .synopsis{color:var(--muted);font-size:.95rem;margin-top:8px}
+    .narrow{width:min(680px,100%)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+    .card.contact{max-width:400px;margin:24px auto}
     footer{text-align:center;border-top:1px solid var(--border);padding:24px 0;margin-top:40px;color:var(--muted)}
+    label.required::after{content:" *";color:#ef4444;font-weight:700}
+    .card.contact form{display:flex;flex-direction:column;gap:12px}
+    .card.contact input,.card.contact textarea{
+      width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;
+      background:var(--card);color:var(--text);font-size:.95rem;transition:border-color .2s,box-shadow .2s
+    }
+    .card.contact input:focus,.card.contact textarea:focus{
+      outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 30%, transparent)
+    }
+    .card.contact button{
+      padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;
+      font-weight:600;cursor:pointer;transition:background .2s,transform .2s
+    }
+    .card.contact button:hover{background:color-mix(in srgb,var(--accent) 80%, #000);transform:translateY(-1px)}
+    .card.contact button:active{transform:translateY(0)}
+    .card.contact p.muted{font-size:.8rem;color:var(--muted);margin:0}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a href="index_en.html"><img src="images/CoverEN.png" alt="Cover" style="height:48px;border-radius:6px"></a>
+      <a href="index_en.html"><img src="images/cover-en.png" alt="Cover" style="height:48px;border-radius:6px"></a>
       <div class="nav-actions">
         <nav aria-label="Language" style="display:flex;gap:6px">
           <a class="chip" href="index.html">SR</a>
@@ -49,20 +69,35 @@
   <main class="container">
     <section class="hero">
       <div class="hero-img">
-        <img src="images/CoverEN.png" alt="New Slavery book cover">
+        <img src="images/cover-en.png" alt="New Slavery cover">
       </div>
       <div class="hero-text">
         <h1>New Slavery</h1>
-        <p class="lede">Buy the <strong>digital edition</strong> for your <em>phone, tablet, or e-reader</em> (EPUB). Works on all modern devices.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <p class="lede">Buy the <strong>digital version</strong> for your <em>phone, tablet, or e-reader</em> (EPUB). Works on all modern devices.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px">
           <a class="btn" href="placanje_en.html">Buy EPUB</a>
           <a class="btn btn-outline" href="odlomak_en.html">Read excerpt</a>
           <a class="btn btn-outline" href="galerija_en.html">Gallery</a>
           <a class="btn btn-outline" href="autor_en.html">About the author</a>
         </div>
-        <p class="synopsis">
-          <em>“New Slavery”</em> is a novel about workers in a generator factory on the outskirts of the city — about exhaustion, class struggle, and resistance. Across 28 chapters, the story intertwines the daily grind of exhausting labor, the characters’ memories, and the consequences of past events that shape their lives. The novel shows how capitalism turns people into numbers and how, within that dehumanization, the strength to finally say “enough” is born.
-        </p>
+        <div class="narrow">
+          <p class="synopsis"><em>“New Slavery”</em> is a novel about workers in a generator factory on the outskirts of the city — about exhaustion, class struggle, and resistance. Across 28 chapters, the story intertwines the daily grind of exhausting labor, the characters’ memories, and the consequences of past events that shape their lives. The novel shows how capitalism turns people into numbers and how, within that dehumanization, the strength to finally say “enough” is born.</p>
+          <div class="card contact">
+            <h3 style="margin:0 0 12px">Contact form</h3>
+            <form id="contact-inline-en" action="https://formspree.io/f/xyzpljrg" method="POST" novalidate>
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <label for="ename" class="required">Full name</label>
+              <input id="ename" name="name" type="text" required>
+              <label for="eemail" class="required">Email</label>
+              <input id="eemail" name="email" type="email" required>
+              <label for="emsg" class="required">Message</label>
+              <textarea id="emsg" name="message" rows="4" required></textarea>
+              <p class="muted">Fields marked with <strong>*</strong> are required.</p>
+              <button id="esubmit" type="submit">Send</button>
+              <span id="eerr" style="display:none;color:#ff7b72;margin-left:10px"></span>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -70,14 +105,11 @@
   <footer>
     <div>© <span id="year"></span> New Slavery. All rights reserved.</div>
     <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:8px">
-      <a href="https://www.tiktok.com/@novoropstvo?_t=ZN-8zR3TlWo6B4&_r=1" target="_blank" rel="noopener noreferrer"
-         style="color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:6px">
-        TikTok
-      </a>
-      <img src="images/tiktok-qr.png" alt="TikTok QR code" width="120" height="120"
-           style="border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px">
+      <a href="https://www.tiktok.com/@novoropstvo?_t=ZN-8zR3TlWo6B4&_r=1" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:600">TikTok</a>
+      <img src="images/tiktok-qr.png" alt="TikTok QR" width="120" height="120" style="border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px">
     </div>
   </footer>
+
   <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     *,*::before,*::after{box-sizing:border-box}
     :root{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a;--accent:#38bdf8}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;background:var(--bg);color:var(--text);line-height:1.7}
-    a{color:var(--accent)}
+    a{color:var(--accent);text-decoration:none}
     .container{width:min(1000px,92vw);margin:0 auto}
     header{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
     .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
@@ -19,13 +19,41 @@
     .btn{background:#0f172a;color:#fff}.btn-outline{background:var(--card);color:var(--text)}
     .chip{background:var(--card);color:var(--text)}.chip[aria-current="true"]{border-color:var(--text)}
     main{padding:28px 0 48px}
+
     .hero{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;align-items:center}
     .hero-img{grid-column:span 4}
     .hero-img img{max-width:100%;height:auto;border-radius:16px;border:1px solid var(--border);display:block}
     .hero-text{grid-column:span 8}
-    h1{font-size:32px;margin:0 0 10px}.lede{color:var(--muted);margin-bottom:16px}
-    .synopsis{color:var(--muted);font-size:.95rem;margin-top:8px;max-width:60ch}
+    h1{font-size:32px;margin:0 0 10px}
+    .lede{color:var(--muted);margin-bottom:16px}
+    .synopsis{color:var(--muted);font-size:.95rem;margin-top:8px}
+    .narrow{width:min(680px,100%)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+    .card.contact{max-width:400px;margin:24px auto}
     footer{text-align:center;border-top:1px solid var(--border);padding:24px 0;margin-top:40px;color:var(--muted)}
+    label.required::after{content:" *";color:#ef4444;font-weight:700}
+
+    /* Lepše polja */
+    .card.contact form{display:flex;flex-direction:column;gap:12px}
+    .card.contact input,
+    .card.contact textarea{
+      width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;
+      background:var(--card);color:var(--text);font-size:0.95rem;
+      transition:border-color .2s,box-shadow .2s
+    }
+    .card.contact input:focus,
+    .card.contact textarea:focus{
+      outline:none;border-color:var(--accent);
+      box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 30%, transparent)
+    }
+    .card.contact button{
+      padding:10px 16px;border:none;border-radius:8px;
+      background:var(--accent);color:#fff;font-weight:600;cursor:pointer;
+      transition:background .2s,transform .2s
+    }
+    .card.contact button:hover{background:color-mix(in srgb,var(--accent) 80%, #000);transform:translateY(-1px)}
+    .card.contact button:active{transform:translateY(0)}
+    .card.contact p.muted{font-size:0.8rem;color:var(--muted);margin:0}
   </style>
 </head>
 <body>
@@ -53,16 +81,34 @@
       </div>
       <div class="hero-text">
         <h1>Novo ropstvo</h1>
-        <p class="lede">Kupi <strong>digitalnu verziju knjige</strong> za tvoj <em>telefon, tablet ili e-čitač</em> (EPUB format). EPUB radi na svim modernim uređajima.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <p class="lede">Kupi <strong>digitalnu verziju knjige</strong> za tvoj <em>telefon, tablet ili e-čitač</em> (EPUB). Radi na svim modernim uređajima.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px">
           <a class="btn" href="placanje.html">Kupi EPUB</a>
           <a class="btn btn-outline" href="odlomak.html">Pročitaj odlomak</a>
           <a class="btn btn-outline" href="galerija.html">Galerija</a>
           <a class="btn btn-outline" href="autor.html">O autoru</a>
         </div>
-        <p class="synopsis">
-          „Novo ropstvo“ je roman o radnicima u fabrici generatora na periferiji grada — o iscrpljenosti, klasnoj borbi i otporu. Kroz 28 poglavlja isprepliću se svakodnevica iscrpljujućeg rada, sećanja likova i posledice prošlih događaja koje oblikuju njihove živote. Roman prikazuje kako kapitalizam pretvara ljude u brojeve i kako se u toj dehumanizaciji rađa snaga da se kaže „dosta“.
-        </p>
+
+        <div class="narrow">
+          <p class="synopsis">„Novo ropstvo“ je roman o radnicima u fabrici generatora na periferiji grada — o iscrpljenosti, klasnoj borbi i otporu. Kroz 28 poglavlja isprepliću se svakodnevica iscrpljujućeg rada, sećanja likova i posledice prošlih događaja koje oblikuju njihove živote. Roman prikazuje kako kapitalizam pretvara ljude u brojeve i kako se u toj dehumanizaciji rađa snaga da se kaže „dosta“.</p>
+
+          <!-- Kontakt -->
+          <div class="card contact">
+            <h3 style="margin:0 0 12px">Kontakt forma</h3>
+            <form id="contact-inline" action="https://formspree.io/f/xyzpljrg" method="POST" novalidate>
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <label for="cname" class="required">Ime i prezime</label>
+              <input id="cname" name="name" type="text" required>
+              <label for="cemail" class="required">E-mail</label>
+              <input id="cemail" name="email" type="email" required>
+              <label for="cmsg" class="required">Poruka</label>
+              <textarea id="cmsg" name="message" rows="4" required></textarea>
+              <p class="muted">Polja označena <strong>*</strong> su obavezna.</p>
+              <button id="csubmit" type="submit">Pošalji</button>
+              <span id="cerr" style="display:none;color:#ff7b72;margin-left:10px"></span>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -70,14 +116,11 @@
   <footer>
     <div>© <span id="year"></span> Novo ropstvo. Sva prava zadržana.</div>
     <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:8px">
-      <a href="https://www.tiktok.com/@novoropstvo?_t=ZN-8zR3TlWo6B4&_r=1" target="_blank" rel="noopener noreferrer"
-         style="color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:6px">
-        TikTok
-      </a>
-      <img src="images/tiktok-qr.png" alt="TikTok QR kod" width="120" height="120"
-           style="border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px">
+      <a href="https://www.tiktok.com/@novoropstvo?_t=ZN-8zR3TlWo6B4&_r=1" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:600">TikTok</a>
+      <img src="images/tiktok-qr.png" alt="TikTok QR" width="120" height="120" style="border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px">
     </div>
   </footer>
+
   <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>

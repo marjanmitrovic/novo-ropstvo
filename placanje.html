@@ -4,33 +4,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Novo ropstvo — Plaćanje</title>
-  <meta name="description" content="Plaćanje EPUB izdanja romana Novo ropstvo — preko Paysend aplikacije (račun ili IBAN)." />
+  <meta name="description" content="Plaćanje EPUB izdanja romana Novo ropstvo — Paysend, prenos, QR." />
   <link rel="icon" href="images/Cover.png" />
   <style>
     *,*::before,*::after{box-sizing:border-box}
-    :root{--bg:#f8f8f8;--text:#1a1a1a;--muted:#6b7280;--card:#fff;--border:#e5e7eb}
-    html.dark{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a}
-    body{margin:0;font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial; background:var(--bg); color:var(--text); line-height:1.7; position:relative;}
+    :root{--bg:#f8f8f8;--text:#1a1a1a;--muted:#6b7280;--card:#fff;--border:#e5e7eb;--accent:#0ea5e9}
+    html.dark{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a;--accent:#38bdf8}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;background:var(--bg);color:var(--text);line-height:1.7}
     body::before{content:"";position:fixed;inset:0;background:url('images/Cover.png') center/contain no-repeat;opacity:.05;z-index:0}
     .container{width:min(900px,92vw);margin:0 auto;position:relative;z-index:1}
-    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
     .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
     .nav-actions{display:flex;align-items:center;gap:10px}
     .btn,.chip{border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-weight:600;text-decoration:none}
-    .btn{background:#111827;color:#fff}
-    .btn-outline{background:var(--card);color:var(--text)}
-    .chip{background:var(--card);color:var(--text)}
-    .chip[aria-current="true"]{border-color:var(--text)}
+    .btn{background:#111827;color:#fff}.btn-outline{background:var(--card);color:var(--text)}
     main{padding:28px 0 48px}
-    h1{font-size:28px;margin:0 0 8px}
-    .lede{color:var(--muted);margin-bottom:18px}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .card{grid-column:span 12;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.12)}
     @media(min-width:860px){.half{grid-column:span 6}}
-    .list{margin:0;padding-left:18px}
-    label{display:block;font-weight:600;margin:.6rem 0 .2rem}
-    input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)}
+    .price{font-size:28px;font-weight:800}
+    .muted{color:var(--muted)}
+    .qr img{width:220px;height:220px;border-radius:12px;border:1px solid var(--border);background:#fff}
     footer{border-top:1px solid var(--border);padding:24px 0;margin-top:40px;text-align:center;color:var(--muted)}
+    /* polishing */
+    @media (prefers-reduced-motion:no-preference){.btn,.btn-outline,.chip,.card,img.fx-tilt{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}}
+    .btn:hover,.btn-outline:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.25)}
+    img.fx-tilt:hover{transform:perspective(600px) rotateX(2.5deg) rotateY(-3deg) translateY(-2px);box-shadow:0 16px 30px rgba(0,0,0,.35)}
   </style>
 </head>
 <body>
@@ -38,7 +37,7 @@
     <div class="container nav">
       <a href="index.html"><img src="images/Cover.png" alt="Korica mala" style="height:48px;border-radius:6px"></a>
       <div class="nav-actions">
-        <nav aria-label="Jezik" class="lang-switch" style="display:flex;gap:6px">
+        <nav aria-label="Jezik" style="display:flex;gap:6px">
           <a class="chip" href="placanje.html" lang="sr" aria-current="true">SR</a>
           <a class="chip" href="placanje_en.html" lang="en">EN</a>
           <a class="chip" href="placanje_cz.html" lang="cs">CZ</a>
@@ -49,60 +48,52 @@
     </div>
   </header>
 
- <main class="container">
-  <h1>Kupovina EPUB izdanja</h1>
-  <p class="lede">
-    Kupi <strong>digitalnu verziju knjige</strong> za tvoj <em>telefon, tablet ili e-čitač</em> (EPUB format). 
-    EPUB fajl se lako otvara na svim modernim uređajima uz besplatne aplikacije za čitanje.
-  </p>
+  <main class="container">
+    <h1>Kupovina EPUB izdanja</h1>
+    <p class="muted">Posle uplate dobijaš <strong>personalizovanu EPUB kopiju</strong> sa vodenim žigom, poslatu na tvoj e-mail.</p>
 
-
-    <section class="grid" aria-label="Načini plaćanja">
+    <section class="grid" aria-label="Načini plaćanja" style="margin-top:16px">
       <article class="card half">
-        <h3 style="margin-top:0">Paysend uplata (račun)</h3>
-        <p class="muted">U Paysend aplikaciji unesite sledeći broj računa:</p>
-        <ul class="list">
-          <li><strong>Primalac:</strong> Marjan Mitrović</li>
-          <li><strong>Svrha:</strong> Novo ropstvo — EPUB</li>
-          <li><strong>Broj računa:</strong> 3138469083/0800</li>
+        <h3 style="margin-top:0">Paysend (preporučeno)</h3>
+        <ul>
           <li><strong>Iznos:</strong> 399 RSD</li>
-        </ul>
-        <p class="muted">Paysend automatski konvertuje uplatu u CZK.</p>
-      </article>
-
-      <article class="card half">
-        <h3 style="margin-top:0">Standardni prenos (IBAN)</h3>
-        <p>Za klasičan bankarski prenos koristi sledeći IBAN:</p>
-        <ul class="list">
+          <li><strong>Broj računa:</strong> 3138469083/0800</li>
           <li><strong>Primalac:</strong> Marjan Mitrović</li>
-          <li><strong>Svrha:</strong> Novo ropstvo — EPUB</li>
+          <li><em>U Paysend aplikaciji koristi se broj računa, ne IBAN.</em></li>
+        </ul>
+      </article>
+      <article class="card half">
+        <h3 style="margin-top:0">Bankovni prenos (alternativa)</h3>
+        <ul>
           <li><strong>IBAN:</strong> CZ59 0800 0000 0031 3846 9083</li>
           <li><strong>SWIFT/BIC:</strong> GIBACZPX</li>
-          <li><strong>Iznos:</strong> 99 CZK</li>
+          <li><strong>Svrha:</strong> NOVO ROPSTVO — EPUB</li>
+          <li><strong>Iznos:</strong> 399 RSD (banka konvertuje u CZK)</li>
         </ul>
       </article>
     </section>
 
-    <section class="grid" style="margin-top:16px" aria-label="Uputstvo za Paysend">
+    <section class="grid" style="margin-top:16px" aria-label="QR kod uplata">
       <article class="card">
-        <h3 style="margin-top:0">Kako instalirati Paysend aplikaciju</h3>
-        <p>Da biste izvršili uplatu, potrebno je da instalirate aplikaciju <strong>Paysend</strong> na vaš telefon:</p>
-        <ol>
-          <li>Otvorite <a href="https://play.google.com/store/apps/details?id=com.paysend.app" target="_blank">Google Play prodavnicu</a> (Android) ili <a href="https://apps.apple.com/us/app/paysend-money-transfer-app/id1269789748" target="_blank">App Store</a> (iPhone).</li>
-          <li>Preuzmite i instalirajte aplikaciju <em>Paysend</em>.</li>
-          <li>Registrujte se sa vašim brojem telefona ili e-mail adresom.</li>
-          <li>U aplikaciji izaberite opciju za slanje novca i unesite broj računa ili IBAN.</li>
-        </ol>
-        <p class="muted">Nakon instalacije, uplata se vrši brzo i bezbedno direktno iz aplikacije.</p>
+        <h3 style="margin-top:0">Plati skeniranjem QR koda</h3>
+        <div class="qr" style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+          <img class="fx-tilt" src="images/qrkod.jpg" alt="QR kod za uplatu" width="220" height="220" style="border:1px solid var(--border);border-radius:12px;background:#fff;padding:6px">
+          <p class="muted">Otvori mobilnu banku i skeniraj QR kod. Podaci za uplatu se popunjavaju automatski.</p>
+        </div>
       </article>
     </section>
 
-    <section style="margin-top:24px" aria-label="Isporuka EPUB-a">
+    <section class="grid" style="margin-top:16px" aria-label="Isporuka EPUB-a">
       <article class="card">
         <h3 style="margin-top:0">Gde da pošaljemo EPUB?</h3>
-        <form onsubmit="event.preventDefault(); alert('Hvala! EPUB stiže nakon potvrde uplate.');">
+        <form onsubmit="event.preventDefault(); alert('Hvala! EPUB stiže na e-mail nakon potvrde uplate.');">
           <label for="email">E-mail adresa</label>
           <input id="email" name="email" type="email" required placeholder="tvoja@adresa.com" />
+          <label for="ref" style="margin-top:.6rem">Referenca uplate (opciono)</label>
+          <input id="ref" name="ref" type="text" placeholder="npr. datum, poslednje 4 cifre, ime platioca" />
+          <p class="muted" style="margin-top:8px">
+            Nakon evidentiranja uplate, <strong>EPUB stiže na Vaš e-mail</strong>. Nema kodova niti dodatnih koraka.
+          </p>
           <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
             <button class="btn" type="submit">Pošalji</button>
             <span class="muted">EPUB stiže posle potvrde uplate.</span>
@@ -113,8 +104,6 @@
   </main>
 
   <footer>© <span id="year"></span> Novo ropstvo. Sva prava zadržana.</footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
