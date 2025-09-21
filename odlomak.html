@@ -1,56 +1,75 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="sr" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Novo ropstvo — Odlomak</title>
-  <link rel="icon" href="images/favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Novo ropstvo — Odlomak (dva poglavlja)</title>
+  <meta name="description" content="Dva cela poglavlja iz romana Novo ropstvo." />
+  <link rel="icon" href="images/Cover.png" />
   <style>
-
-    :root{{
-      --brand:#0a62c9; /* kao na live sajtu */
-      --text:#121212;
-      --muted:#555;
-      --border:#e6e6e6;
-      --bg:#ffffff;
-    }}
-
-
-*{{box-sizing:border-box}}
-body{{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;margin:0;line-height:1.6;color:var(--text);background:var(--bg)}}
-header,main,footer{{max-width:980px;margin:0 auto;padding:16px}}
-header{{display:flex;gap:12px;align-items:center;justify-content:space-between}}
-nav a{{margin-right:12px;text-decoration:none;color:var(--brand)}}
-nav a[aria-current="page"]{{text-decoration:underline}}
-footer{{border-top:1px solid var(--border);color:var(--muted)}}
-
-main{{max-width:780px}}
-h1,h2{{line-height:1.25}}
-.chapter{{margin:16px 0 24px}}
-p{{margin:0 0 14px}}
-
-</style>
+    *,*::before,*::after{box-sizing:border-box}
+    :root{--bg:#f8f8f8;--text:#1a1a1a;--muted:#6b7280;--card:#fff;--border:#e5e7eb}
+    html.dark{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a}
+    body{margin:0;font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial; background:var(--bg); color:var(--text); line-height:1.7; position:relative;}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('images/Cover.png') center/contain no-repeat;
+      opacity: 0.06;
+      z-index: 0;
+    }
+    .container{width:min(900px,92vw);margin:0 auto;position:relative;z-index:1;}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .btn,.chip{border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-weight:600;text-decoration:none}
+    .btn{background:#111827;color:#fff}
+    .chip{background:var(--card);color:var(--text)}
+    .chip[aria-current="true"]{border-color:var(--text)}
+    main{padding:28px 0 48px}
+    h1{font-size:28px;margin:0 0 8px}
+    .meta{color:var(--muted);margin-bottom:16px}
+    .excerpt{background:var(--card);border:1px solid var(--border);padding:20px;border-radius:12px;white-space:pre-wrap;position:relative;z-index:1;}
+    footer{border-top:1px solid var(--border);padding:24px 0;margin-top:40px;text-align:center;color:var(--muted);position:relative;z-index:1;}
+  </style>
 </head>
 <body>
   <header>
-    <a href="index.html" aria-label="Početna"><strong>NOVO ROPSTVO</strong></a>
-    <nav aria-label="Glavna navigacija">
-      <a href="index.html">Početna</a>
-      <a href="galerija.html">Galerija</a>
-      <a href="odlomak.html" aria-current="page">Odlomak</a>
-      <a href="placanje.html#sr">Uplata</a>
-    </nav>
+    <div class="container nav">
+      <a href="index.html"><img src="images/Cover.png" alt="Korica mala" style="height:48px;border-radius:6px"></a>
+      <div class="nav-actions">
+        <nav class="lang-switch" style="display:flex;gap:6px">
+          <a class="chip" href="odlomak.html" lang="sr" aria-current="true">SR</a>
+          <a class="chip" href="odlomak_en.html" lang="en">EN</a>
+          <a class="chip" href="odlomak_cz.html" lang="cs">CZ</a>
+        </nav>
+        <a class="btn" href="galerija.html">Galerija</a>
+        <a class="btn" href="placanje.html">Kupi EPUB</a>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <main class="container">
     <h1>Odlomak</h1>
-    <h2 class="chapter">POGLAVLJE XII — Oni koji nestaju</h2>
+    <div class="meta">Dva cela poglavlja iz romana <em>Novo ropstvo</em>.</div>
+    <div class="excerpt">
+POGLAVLJE I — Brojevi 427, 428 i 429
 
-    <p><em>(Ovde ide odabrani odlomak.)</em></p>
+U fabrici generatora na periferiji grada, dan je uvek počinjao zvukom sirene — kratak, prodoran ton u 6:00 koji nije budio, već bacao iz kreveta. Zidovi garderobe bili su sivi, vlažni od kondenzacije, kao da ni vazduh nije imao snage da diše. Fluorescentna svetla zujala su tiho, ali neumoljivo, kao podsmeh umornim licima koja su se gledala u razbijena ogledala iznad lavaboa. Radnici su dolazili bez reči. Niko nije više razgovarao ujutru — nije bilo energije za to. Troje među njima, Broj 427 (Marko), Broj 428 (Jelena) i Broj 429 (Dragan), znali su jedno drugo po pogledu i po mehanizmu pokreta — uvežbanim koracima, kao precizne ruke istog starog mehanizma.
+
+---
+
+“Norma danas — pet komada više po smeni”, pročitala je Jelena sa papira zakačenog kraj linije. Nije se ni začudila. Bio je to peti dan zaredom da se broj povećava. Niko nije objašnjavao zašto. Niko nije pitao....
+
+
+POGLAVLJE XXVI: Pritisak
+
+Već ujutru, do fabrike su stigli „predstavnici države“. Nisu nosili uniforme, ali svima je bilo jasno ko su. Inspektor sa značkom, čovek sa akt-tašnom i jedna žena koja se nije predstavila, ali je govorila rečima koje su imale težinu: „Zakon o radu član 183 — samovoljni prekid proizvodnje bez prethodne najave smatra se sabotažom. Ovo može imati posledice po svakog učesnika pojedinačno.“ Ilija je ćutao. Marko je rekao: „A mi ćemo vas tužiti za prisilu, kršenje prava na zdravstvenu zaštitu i nezakonito snimanje. Imamo svedoke. I snimke.“ Žena se nije pomerila. Samo je rekla: „Ovo neće proći kako mislite.“ Jelena joj je prišla, polako, bez straha: „Možda. Ali više nećemo živeti na kolenima. Ako treba, svi ćemo otići. Ali vi ćete ostati bez fabrike."
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Marjan Mitrović. Sva prava zadržana.</p>
-  </footer>
+  <footer>© <span id="year"></span> Novo ropstvo. Sva prava zadržana.</footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>

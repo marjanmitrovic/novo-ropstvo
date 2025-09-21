@@ -1,67 +1,110 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="sr" data-theme="light">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Novo ropstvo — Galerija</title>
-  <link rel="icon" href="images/favicon.png">
+  <meta name="description" content="Galerija slika romana Novo ropstvo." />
+  <link rel="icon" href="images/Cover.png" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
-    :root{{
-      --brand:#0a62c9; /* kao na live sajtu */
-      --text:#121212;
-      --muted:#555;
-      --border:#e6e6e6;
-      --bg:#ffffff;
-    }}
+    :root {
+      --bg: #f8f8f8;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --border: #e5e7eb;
+    }
+    html.dark {
+      --bg: #0b0c0e;
+      --text: #e6e7e9;
+      --muted: #9aa0a6;
+      --card: #111214;
+      --border: #23262a;
+    }
 
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--bg) 85%, transparent); }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; }
+    .nav-actions { display:flex; align-items:center; gap: 10px; }
+    .btn, .chip { border: 1px solid var(--border); border-radius: 12px; padding: 8px 14px; font-weight: 600; text-decoration:none; }
+    .btn { background: #111827; color: #fff; }
+    .chip { background: var(--card); color: var(--text); }
+    .chip[aria-current="true"] { border-color: var(--text); }
+    .icon-btn { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 8px 10px; }
 
-*{{box-sizing:border-box}}
-body{{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;margin:0;line-height:1.6;color:var(--text);background:var(--bg)}}
-header,main,footer{{max-width:980px;margin:0 auto;padding:16px}}
-header{{display:flex;gap:12px;align-items:center;justify-content:space-between}}
-nav a{{margin-right:12px;text-decoration:none;color:var(--brand)}}
-nav a[aria-current="page"]{{text-decoration:underline}}
-footer{{border-top:1px solid var(--border);color:var(--muted)}}
+    main { padding: 40px 0; }
+    h1 { font-size: 32px; margin-bottom: 24px; }
 
-.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}}
-figure{{margin:0}}
-img{{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}}
-figcaption{{font-size:14px;color:var(--muted);margin-top:4px}}
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px,1fr)); gap: 16px; }
+    .gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--border); object-fit: cover; }
 
-</style>
+    footer { border-top: 1px solid var(--border); padding: 24px 0; margin-top: 40px; text-align: center; color: var(--muted); }
+  </style>
 </head>
 <body>
   <header>
-    <a href="index.html" aria-label="Početna"><strong>NOVO ROPSTVO</strong></a>
-    <nav aria-label="Glavna navigacija">
-      <a href="index.html">Početna</a>
-      <a href="galerija.html" aria-current="page">Galerija</a>
-      <a href="odlomak.html">Odlomak</a>
-      <a href="placanje.html#sr">Uplata</a>
-    </nav>
+    <div class="container nav">
+      <a href="index.html">
+        <img src="images/Cover.png" alt="Korica mala" style="height:48px; border-radius:6px;" />
+      </a>
+      <div class="nav-actions">
+        <nav class="lang-switch" style="display:flex; gap:6px;">
+          <a class="chip" href="index.html" lang="sr">SR</a>
+          <a class="chip" href="index_en.html" lang="en">EN</a>
+          <a class="chip" href="index_cz.html" lang="cs">CZ</a>
+        </nav>
+        <a class="btn" href="galerija.html" aria-current="true">Galerija</a>
+        <a class="btn" href="placanje.html">Kupi EPUB</a>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <main class="container">
     <h1>Galerija</h1>
-    <div class="grid">
-      <figure>
-        <img src="images/galerija/01.jpg" alt="Promo vizual knjige Novo ropstvo" loading="lazy">
-        <figcaption>Promo vizual</figcaption>
-      </figure>
-      <figure>
-        <img src="images/galerija/02.jpg" alt="Autor — portret" loading="lazy">
-        <figcaption>Autor, portret</figcaption>
-      </figure>
-      <figure>
-        <img src="images/galerija/03.jpg" alt="Pogled u unutrašnje stranice knjige" loading="lazy">
-        <figcaption>Unutrašnje stranice</figcaption>
-      </figure>
+    <div class="gallery">
+      <!-- Automatski ubacujemo 30 slika -->
+      <img src="images/skica1.png" alt="Skica 1">
+      <img src="images/skica2.png" alt="Skica 2">
+      <img src="images/skica3.png" alt="Skica 3">
+      <img src="images/skica4.png" alt="Skica 4">
+      <img src="images/skica5.png" alt="Skica 5">
+      <img src="images/skica6.png" alt="Skica 6">
+      <img src="images/skica7.png" alt="Skica 7">
+      <img src="images/skica8.png" alt="Skica 8">
+      <img src="images/skica9.png" alt="Skica 9">
+      <img src="images/skica10.png" alt="Skica 10">
+      <img src="images/skica11.png" alt="Skica 11">
+      <img src="images/skica12.png" alt="Skica 12">
+      <img src="images/skica13.png" alt="Skica 13">
+      <img src="images/skica14.png" alt="Skica 14">
+      <img src="images/skica15.png" alt="Skica 15">
+      <img src="images/skica16.png" alt="Skica 16">
+      <img src="images/skica17.png" alt="Skica 17">
+      <img src="images/skica18.png" alt="Skica 18">
+      <img src="images/skica19.png" alt="Skica 19">
+      <img src="images/skica20.png" alt="Skica 20">
+      <img src="images/skica21.png" alt="Skica 21">
+      <img src="images/skica22.png" alt="Skica 22">
+      <img src="images/skica23.png" alt="Skica 23">
+      <img src="images/skica24.png" alt="Skica 24">
+      <img src="images/skica25.png" alt="Skica 25">
+      <img src="images/skica26.png" alt="Skica 26">
+      <img src="images/skica27.png" alt="Skica 27">
+      <img src="images/skica28.png" alt="Skica 28">
+      <img src="images/skica29.png" alt="Skica 29">
+      <img src="images/skica30.png" alt="Skica 30">
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Marjan Mitrović. Sva prava zadržana.</p>
+    © <span id="year"></span> Novo ropstvo. Sva prava zadržana.
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
