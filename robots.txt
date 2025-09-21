@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://novo-ropstvo.github.io/novo-ropstvo/sitemap.xml

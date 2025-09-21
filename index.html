@@ -3,183 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Novo ropstvo — zvanična stranica</title>
-  <meta name="description" content="Zvanična stranica romana Novo ropstvo. Pročitaj odlomak, kupi EPUB i podrži autora." />
-  <meta property="og:title" content="Novo ropstvo — roman" />
-  <meta property="og:description" content="Pročitaj odlomak, kupi EPUB i podrži autora." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/Cover.png" />
-  <meta property="og:url" content="/" />
+  <title>Novo ropstvo — zvanični sajt</title>
+  <meta name="description" content="Zvanični sajt romana Novo ropstvo. Odlomak, galerija, kupovina EPUB izdanja." />
   <link rel="icon" href="images/Cover.png" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    img { max-width: 100%; height: auto; display: block; }
-    a { text-decoration: none; color: inherit; }
-
-    :root {
-      --bg: #f8f8f8;
-      --text: #1a1a1a;
-      --muted: #6b7280;
-      --card: #ffffff;
-      --border: #e5e7eb;
-      --btn: #111827;
-      --btn-text: #ffffff;
-      --accent: #0ea5e9;
-    }
-    html.dark {
-      --bg: #0b0c0e;
-      --text: #e6e7e9;
-      --muted: #9aa0a6;
-      --card: #111214;
-      --border: #23262a;
-      --btn: #e6e7e9;
-      --btn-text: #0b0c0e;
-      --accent: #38bdf8;
-    }
-
-    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    .container { width: min(1100px, 92vw); margin: 0 auto; }
-    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(140%) blur(6px); border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--bg) 85%, transparent); }
-    .nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; }
-    .nav-actions { display:flex; align-items:center; gap: 10px; }
-    .btn, .chip { cursor: pointer; border: 1px solid var(--border); background: var(--btn); color: var(--btn-text); padding: 10px 14px; border-radius: 12px; font-weight: 600; }
-    .chip { background: var(--card); color: var(--text); }
-    .chip[aria-current="true"] { border-color: var(--text); }
-    .icon-btn { background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 8px 10px; border-radius: 12px; display:inline-flex; align-items:center; gap:8px; }
-
-    main { padding: 36px 0 60px; }
-    .hero { display:grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; padding: 28px 0 8px; }
-    .cover-card { background: var(--card); border: 1px solid var(--border); padding: 16px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
-    .cover-img { width: 100%; border-radius: 12px; aspect-ratio: 2/3; object-fit: cover; }
-
-    .hero h1 { font-size: clamp(28px, 4.4vw, 48px); margin: 0 0 8px; }
-    .hero p { color: var(--muted); margin: 0 0 20px; }
-    .cta { display:flex; gap: 10px; flex-wrap: wrap; }
-    .btn-outline { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-
-    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 40px; }
-    .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
-    .card h3 { margin: 0 0 6px; }
-    .card p { margin: 0; color: var(--muted); }
-
-    @media (min-width: 860px) { .card--half { grid-column: span 6; } }
-    footer { border-top: 1px solid var(--border); padding: 24px 0 40px; margin-top: 40px; color: var(--muted); font-size: 14px; }
+    *,*::before,*::after{box-sizing:border-box}
+    :root{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a;--accent:#38bdf8}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;background:var(--bg);color:var(--text);line-height:1.7}
+    a{color:var(--accent)}
+    .container{width:min(1000px,92vw);margin:0 auto}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .nav-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .btn,.chip{border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-weight:600}
+    .btn{background:#0f172a;color:#fff}.btn-outline{background:var(--card);color:var(--text)}
+    .chip{background:var(--card);color:var(--text)}.chip[aria-current="true"]{border-color:var(--text)}
+    main{padding:28px 0 48px}
+    .hero{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;align-items:center}
+    .hero-img{grid-column:span 4}
+    .hero-img img{max-width:100%;height:auto;border-radius:16px;border:1px solid var(--border);display:block}
+    .hero-text{grid-column:span 8}
+    h1{font-size:32px;margin:0 0 10px}.lede{color:var(--muted);margin-bottom:16px}
+    .synopsis{color:var(--muted);font-size:.95rem;margin-top:8px;max-width:60ch}
+    footer{text-align:center;border-top:1px solid var(--border);padding:24px 0;margin-top:40px;color:var(--muted)}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a href="index.html" aria-label="Početna">
-        <img src="images/Cover.png" alt="Korica mala" style="height:48px; border-radius:6px;" />
-      </a>
+      <a href="index.html"><img src="images/Cover.png" alt="Korica" style="height:48px;border-radius:6px"></a>
       <div class="nav-actions">
-        <nav aria-label="Jezik" class="lang-switch" style="display:flex; gap:6px; align-items:center;">
-          <a class="chip" href="index.html" lang="sr" aria-current="true">SR</a>
-          <a class="chip" href="index_en.html" lang="en">EN</a>
-          <a class="chip" href="index_cz.html" lang="cs">CZ</a>
+        <nav aria-label="Jezik" style="display:flex;gap:6px">
+          <a class="chip" href="index.html" aria-current="true">SR</a>
+          <a class="chip" href="index_en.html">EN</a>
+          <a class="chip" href="index_cz.html">CZ</a>
         </nav>
-        <a class="btn" href="galerija.html">Galerija</a>
-        <button id="themeToggle" class="icon-btn" type="button" aria-label="Promeni temu"><span id="themeLabel">Tamni mod</span></button>
+        <a class="btn btn-outline" href="odlomak.html">Odlomak</a>
+        <a class="btn btn-outline" href="galerija.html">Galerija</a>
+        <a class="btn btn-outline" href="autor.html">O autoru</a>
         <a class="btn" href="placanje.html">Kupi EPUB</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero" aria-labelledby="h-hero">
-      <div class="cover-card">
-        <img class="cover-img" src="images/Cover.png" alt="Korica romana Novo ropstvo" />
+    <section class="hero">
+      <div class="hero-img">
+        <img src="images/Cover.png" alt="Korica knjige Novo ropstvo">
       </div>
-      <div>
-        <h1 id="h-hero">NOVO ROPSTVO</h1>
-        <p>Roman o radnicima, iscrpljenosti i otporu. Fabrički hodnici, lične bitke i duh vremena koji melje. Napisao Marjan Mitrović.</p>
-        <div class="cta">
+      <div class="hero-text">
+        <h1>Novo ropstvo</h1>
+        <p class="lede">Kupi <strong>digitalnu verziju knjige</strong> za tvoj <em>telefon, tablet ili e-čitač</em> (EPUB format). EPUB radi na svim modernim uređajima.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn" href="placanje.html">Kupi EPUB</a>
           <a class="btn btn-outline" href="odlomak.html">Pročitaj odlomak</a>
+          <a class="btn btn-outline" href="galerija.html">Galerija</a>
+          <a class="btn btn-outline" href="autor.html">O autoru</a>
         </div>
+        <p class="synopsis">
+          „Novo ropstvo“ je roman o radnicima u fabrici generatora na periferiji grada — o iscrpljenosti, klasnoj borbi i otporu. Kroz 28 poglavlja isprepliću se svakodnevica iscrpljujućeg rada, sećanja likova i posledice prošlih događaja koje oblikuju njihove živote. Roman prikazuje kako kapitalizam pretvara ljude u brojeve i kako se u toj dehumanizaciji rađa snaga da se kaže „dosta“.
+        </p>
       </div>
     </section>
-
-    <section class="grid" aria-label="Kratke informacije">
-      <article class="card card--half">
-        <h3>O knjizi</h3>
-        <p>Višeslojna priča o klasnoj borbi i posledicama tranzicije — napisana modernim, filmskim jezikom.</p>
-      </article>
-      <article class="card card--half">
-        <h3>Format</h3>
-        <p>Digitalno izdanje (EPUB). Posle uplate dobijaš personalizovani primerak sa vodenim žigom.</p>
-      </article>
-    </section>
-
-  <section id="kontakt" class="grid">
-  <article class="card">
-    <h2>Kontakt</h2>
-    <form id="contactForm">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div>
-          <label>Ime</label>
-          <input name="name" placeholder="Vaše ime" required>
-        </div>
-        <div>
-          <label>E-mail</label>
-          <input type="email" name="email" placeholder="vas@email.com" required>
-        </div>
-      </div>
-      <label style="margin-top:10px;display:block">Poruka</label>
-      <textarea name="message" placeholder="Napišite poruku…" rows="5" required></textarea>
-
-      <input class="hp" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
-
-      <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn" type="submit">Pošalji</button>
-        <a id="mailto" href="#" class="note">…ili pošalji iz svog klijenta</a>
-      </div>
-      <div class="msg" id="msg"></div>
-    </form>
-    <p class="note" style="margin-top:8px">Odgovaramo u najkraćem roku.</p>
-  </article>
-</section>
-
-<script>
-window.FORMSPREE_URL="https://formspree.io/f/xyzpljrg";
-const f=document.getElementById('contactForm'),m=document.getElementById('msg'),mailto=document.getElementById('mailto');
-function setMailto(){const d=new FormData(f),from=(d.get('email')||''),name=(d.get('name')||''),body=(d.get('message')||'');mailto.href=`mailto:marjan.posao@gmail.com?subject=${encodeURIComponent("Poruka sa sajta — Novo ropstvo")}&body=${encodeURIComponent(`Ime: ${name}\nEmail: ${from}\n\n${body}`)}`;}
-['input','change'].forEach(ev=>f.addEventListener(ev,setMailto));setMailto();
-f.addEventListener('submit',async e=>{e.preventDefault();m.textContent="⏳ Šaljem…";const d=new FormData(f);if(d.get('_gotcha')){m.textContent="❌ Greška.";return;}try{const r=await fetch(window.FORMSPREE_URL,{method:"POST",body:d,headers:{"Accept":"application/json"}});if(r.ok){m.textContent="✅ Poruka poslata.";f.reset();setMailto();}else{m.textContent="❌ Slanje neuspešno."}}catch{m.textContent="❌ Mrežna greška.";}}); 
-</script>
-
   </main>
 
   <footer>
-    <div class="container">
-      © <span id="year"></span> Novo ropstvo. Sva prava zadržana.
+    <div>© <span id="year"></span> Novo ropstvo. Sva prava zadržana.</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:8px">
+      <a href="https://www.tiktok.com/@novoropstvo?_t=ZN-8zR3TlWo6B4&_r=1" target="_blank" rel="noopener noreferrer"
+         style="color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:6px">
+        TikTok
+      </a>
+      <img src="images/tiktok-qr.png" alt="TikTok QR kod" width="120" height="120"
+           style="border:1px solid var(--border);border-radius:8px;background:#fff;padding:6px">
     </div>
   </footer>
-
-  <script>
-    (function initTheme(){
-      const saved = localStorage.getItem('theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (systemDark ? 'dark':'light');
-      document.documentElement.classList.toggle('dark', theme==='dark');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-
-    function updateToggleUI(){
-      const isDark = document.documentElement.classList.contains('dark');
-      document.getElementById('themeLabel').textContent = isDark ? 'Svetli mod' : 'Tamni mod';
-    }
-    document.getElementById('themeToggle').addEventListener('click', ()=>{
-      const root = document.documentElement;
-      const nowDark = !root.classList.contains('dark');
-      root.classList.toggle('dark', nowDark);
-      root.setAttribute('data-theme', nowDark?'dark':'light');
-      localStorage.setItem('theme', nowDark?'dark':'light');
-      updateToggleUI();
-    });
-    updateToggleUI();
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>

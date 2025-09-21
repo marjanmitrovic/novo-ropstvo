@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>O autoru — Novo ropstvo</title>
+  <meta name="description" content="O autoru romana Novo ropstvo — Marjan Mitrović." />
+  <link rel="icon" href="images/Cover.png" />
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;background:#0b0c0e;color:#e6e7e9;line-height:1.7}
+    .container{width:min(900px,92vw);margin:0 auto;padding:20px}
+    header{padding:14px 0;border-bottom:1px solid #23262a}
+    a{color:#38bdf8;text-decoration:none}
+    h1{margin-top:0}
+    img{max-width:200px;border-radius:12px;margin-bottom:20px}
+    footer{text-align:center;padding:24px 0;margin-top:40px;border-top:1px solid #23262a;color:#9aa0a6}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <a href="index.html">← Početna</a>
+  </header>
+
+  <main class="container">
+    <h1>O autoru</h1>
+    <img src="images/autor.jpg" alt="Marjan Mitrović">
+    <p>
+      Marjan Mitrović (1980) je pisac i fudbalski sudija, trenutno živi u Pragu.
+      Aktivno se bavi pitanjima rada, klasne borbe i društvenih odnosa.
+      <em>„Novo ropstvo“</em> je njegov prvi roman, u kojem povezuje lično iskustvo rada
+      i širi pogled na kapitalistički sistem. Njegova ambicija je da kroz književnost
+      otvori prostor za dijalog i promišljanje o položaju radnika danas.
+    </p>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Novo ropstvo. Sva prava zadržana.
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
