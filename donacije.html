@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donacije — Novo ropstvo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background:#111; color:#fff; margin:0; font-family:Arial, sans-serif; }
+    header, footer { background:#000; padding:20px; text-align:center; }
+    .container { max-width:900px; margin:0 auto; padding:40px 20px; text-align:center; }
+    h1 { color:#e63946; font-size:2.2rem; margin-bottom:20px; }
+    p { font-size:1.1rem; line-height:1.6; margin-bottom:25px; }
+    .donation-box { background:#1d1d1d; padding:30px; border-radius:12px; text-align:left; display:inline-block; }
+    .donation-box p { margin:8px 0; }
+    .btn { display:inline-block; margin-top:30px; padding:12px 25px; background:#e63946; color:#fff; text-decoration:none; border-radius:8px; font-weight:bold; }
+    .btn:hover { background:#c92d3d; }
+    .lang-switch { text-align:right; padding:10px 20px; font-size:0.9rem; }
+    .lang-switch a { color:#bbb; margin:0 6px; text-decoration:none; }
+    .lang-switch a:hover { color:#fff; }
+    .qr-section { margin-top:30px; text-align:center; }
+    .qr-section h2 { color:#e63946; margin-bottom:20px; }
+    .qr-wrap { display:flex; justify-content:center; gap:50px; flex-wrap:wrap; }
+    .qr-wrap div { text-align:center; }
+    .qr-wrap img { max-width:200px; border:3px solid #e63946; border-radius:8px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="lang-switch">
+    <a href="donacije.html">SR</a> | <a href="donations.html">EN</a> | <a href="donace.html">CZ</a>
+  </div>
+  <h2>📘 Novo ropstvo</h2>
+</header>
+
+<div class="container">
+  <h1>Podržite izdavanje i štampanje knjige</h1>
+  <p>
+    Vaša donacija pomaže da <em>„Novo ropstvo“</em> izađe i u štampanom izdanju.  
+    Svaka podrška je važna i cenjena!
+  </p>
+
+  <div class="donation-box">
+    <p><strong>IBAN:</strong> CZ65 0800 0000 0000 1234 5678</p>
+    <p><strong>Banka:</strong> Česká spořitelna</p>
+    <p><strong>Primaoc:</strong> Marjan Mitrović</p>
+    <p><strong>Poruka za uplatu:</strong> DONACIJA ZA KNJIGU</p>
+  </div>
+
+  <!-- QR sekcija -->
+<!-- QR sekcija -->
+<div class="qr-section">
+  <h2>Donirajte brzo preko QR koda</h2>
+  <div class="qr-wrap" style="display:flex; justify-content:center;">
+    <div style="text-align:center;">
+      <p><strong>Donacija 450 RSD
+      </strong></p>
+      <img src="images/qrdonacija.jpg" alt="QR kod donacija 100 Kč" style="max-width:320px; border:3px solid #e63946; border-radius:8px; background:#fff; padding:6px;">
+    </div>
+  </div>
+</div>
+
+
+  <a href="index.html" class="btn">⬅ Povratak na početnu</a>
+</div>
+
+<footer>
+  <p>&copy; 2025 Novo ropstvo</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donace — Nové otroctví</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background:#111; color:#fff; margin:0; font-family:Arial, sans-serif; }
+    header, footer { background:#000; padding:20px; text-align:center; }
+    .container { max-width:900px; margin:0 auto; padding:40px 20px; text-align:center; }
+    h1 { color:#e63946; font-size:2.2rem; margin-bottom:20px; }
+    p { font-size:1.1rem; line-height:1.6; margin-bottom:25px; }
+    .donation-box { background:#1d1d1d; padding:30px; border-radius:12px; text-align:left; display:inline-block; }
+    .donation-box p { margin:8px 0; }
+    .btn { display:inline-block; margin-top:30px; padding:12px 25px; background:#e63946; color:#fff; text-decoration:none; border-radius:8px; font-weight:bold; }
+    .btn:hover { background:#c92d3d; }
+    .lang-switch { text-align:right; padding:10px 20px; font-size:0.9rem; }
+    .lang-switch a { color:#bbb; margin:0 6px; text-decoration:none; }
+    .lang-switch a:hover { color:#fff; }
+    .qr-section { margin-top:30px; text-align:center; }
+    .qr-section h2 { color:#e63946; margin-bottom:20px; }
+    .qr-wrap { display:flex; justify-content:center; gap:50px; flex-wrap:wrap; }
+    .qr-wrap div { text-align:center; }
+    .qr-wrap img { max-width:200px; border:3px solid #e63946; border-radius:8px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="lang-switch">
+    <a href="donacije.html">SR</a> | <a href="donations.html">EN</a> | <a href="donace.html">CZ</a>
+  </div>
+  <h2>📘 Nové otroctví</h2>
+</header>
+
+<div class="container">
+  <h1>Podpořte vydání a tisk knihy</h1>
+  <p>
+    Vaše donace pomůže pokrýt náklady na tisk, distribuci a propagaci románu <em>„Nové otroctví“</em>.  
+    Každý příspěvek se počítá!
+  </p>
+
+  <div class="donation-box">
+    <p><strong>Číslo účtu:</strong> 3138469083/0800</p>
+    <p><strong>Banka:</strong> Česká spořitelna</p>
+    <p><strong>Příjemce:</strong> Marjan Mitrović</p>
+    <p><strong>Zpráva pro příjemce:</strong> Donacija za knjigu</p>
+  </div>
+
+ <!-- QR sekce -->
+<div class="qr-section">
+  <h2>Darujte rychle přes QR kód</h2>
+  <div class="qr-wrap" style="display:flex; justify-content:center;">
+    <div style="text-align:center;">
+      <p><strong>Dar 100 Kč</strong></p>
+      <img src="images/qrdonacija.jpg" alt="QR kód dar 100 Kč" style="max-width:320px; border:3px solid #e63946; border-radius:8px; background:#fff; padding:6px;">
+    </div>
+  </div>
+</div>
+
+
+  <a href="index_cz.html" class="btn">⬅ Zpět na úvod</a>
+</div>
+
+<footer>
+  <p>&copy; 2025 Nové otroctví</p>
+</footer>
+
+</body>
+</html>
