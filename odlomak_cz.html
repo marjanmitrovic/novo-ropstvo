@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nové otroctví — Ukázka (dvě kapitoly)</title>
+  <meta name="description" content="Dvě celé kapitoly z románu Nové otroctví." />
+  <link rel="icon" href="images/CoverCZ.png" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    :root{--bg:#f8f8f8;--text:#1a1a1a;--muted:#6b7280;--card:#fff;--border:#e5e7eb}
+    html.dark{--bg:#0b0c0e;--text:#e6e7e9;--muted:#9aa0a6;--card:#111214;--border:#23262a}
+    body{margin:0;font-family:system-ui, sans-serif; background:var(--bg); color:var(--text); line-height:1.7; position:relative;}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url('images/CoverCZ.png') center/contain no-repeat;
+      opacity: 0.06;
+      z-index: 0;
+    }
+    .container{width:min(900px,92vw);margin:0 auto;position:relative;z-index:1;}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 85%, transparent)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .btn,.chip{border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-weight:600;text-decoration:none}
+    .btn{background:#111827;color:#fff}
+    .chip{background:var(--card);color:var(--text)}
+    .chip[aria-current="true"]{border-color:var(--text)}
+    main{padding:28px 0 48px}
+    h1{font-size:28px;margin:0 0 8px}
+    .meta{color:var(--muted);margin-bottom:16px}
+    .excerpt{background:var(--card);border:1px solid var(--border);padding:20px;border-radius:12px;white-space:pre-wrap;position:relative;z-index:1;}
+    footer{border-top:1px solid var(--border);padding:24px 0;margin-top:40px;text-align:center;color:var(--muted);position:relative;z-index:1;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index_cz.html"><img src="images/CoverCZ.png" alt="Malá obálka" style="height:48px;border-radius:6px"></a>
+      <div class="nav-actions">
+        <nav class="lang-switch" style="display:flex;gap:6px">
+          <a class="chip" href="odlomak.html" lang="sr">SR</a>
+          <a class="chip" href="odlomak_en.html" lang="en">EN</a>
+          <a class="chip" href="odlomak_cz.html" lang="cs" aria-current="true">CZ</a>
+        </nav>
+        <a class="btn" href="galerija_cz.html">Galerie</a>
+        <a class="btn" href="placanje_cz.html">Koupit EPUB</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Ukázka z románu "Nové otroctví"</h1>
+   
+    <div class="excerpt">
+KAPITOLA I — Čísla 427, 428 a 429
+
+V továrně na generátory na okraji města den vždy začínal zvukem sirény — krátký, pronikavý tón v 6:00, který vás neprobudil, ale vyhodil z postele. Stěny šatny byly šedé, vlhké od kondenzace, jako by ani vzduch neměl sílu dýchat. Zářivky tiše hučely, ale neúprosně, jako posměch unaveným tvářím, které se dívaly samy na sebe v popraskaných zrcadlech nad umyvadly.
+
+Dělníci přicházeli beze slov. Nikdo už ráno nemluvil — nebyla na to energie. Tři z nich, číslo 427 (Marko), číslo 428 (Jelena) a číslo 429 (Dragan), se znali pohledem a mechanikou pohybu — nacvičenými kroky, jako přesné ruce téhož starého mechanismu.
+
+---
+
+„Dnešní norma — o pět kusů více na směnu,“ přečetla Jelena z papíru připevněného vedle linky. Ani se nedivila. Byl to pátý den po sobě, kdy se číslo zvedlo. Nikdo nevysvětloval proč. Nikdo se neptal....
+
+---
+
+KAPITOLA XXVI — Tlak
+
+Už ráno do továrny dorazili „zástupci státu“. Neměli uniformy, ale všem bylo jasné, kdo jsou. Inspektor s odznakem, muž s aktovkou a jedna žena, která se nepředstavila, ale mluvila slovy, jež měla váhu: „Zákoník práce, článek 183 — svévolné zastavení výroby bez předchozího oznámení se považuje za sabotáž. To může mít následky pro každého účastníka jednotlivě.“
+
+Ilija mlčel. Marko řekl: „A my vás zažalujeme za nátlak, porušení práva na ochranu zdraví a nezákonné sledování. Máme svědky. A záznamy.“
+
+Žena se nepohnula. Jen řekla: „Tohle neskončí tak, jak si myslíte.“
+
+Jelena k ní přistoupila, pomalu, beze strachu: „Možná. Ale už nebudeme žít na kolenou. Když bude třeba, všichni odejdeme. Ale vám zůstane továrna prázdná.“
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> Nové otroctví. Všechna práva vyhrazena.</footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
