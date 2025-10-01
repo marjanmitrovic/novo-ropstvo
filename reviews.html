@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews — New Slavery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#111; color:#fff; font-family:Arial, sans-serif;">
+
+  <nav class="main-nav" style="background:#000; padding:15px; display:flex; justify-content:space-between; align-items:center;">
+    <ul style="list-style:none; margin:0; padding:0; display:flex; gap:10px;">
+      <li><a href="index_en.html" class="btn">Home</a></li>
+      <li><a href="placanje_en.html" class="btn">Payment</a></li>
+      <li><a href="galerija_en.html" class="btn">Gallery</a></li>
+      <li><a href="donations.html" class="btn">Donations</a></li>
+      <li><a href="reviews.html" class="btn">Reviews</a></li>
+    </ul>
+    <div class="lang-switch">
+      <a href="recenzije.html">SR</a> | 
+      <a href="reviews.html">EN</a> | 
+      <a href="recenze.html">CZ</a>
+    </div>
+  </nav>
+
+  <main style="max-width:800px; margin:40px auto; padding:20px;">
+    <h1 style="color:#e63946;">Leave a Review</h1>
+    <p>Your feedback helps others discover the book.</p>
+
+    <form id="fs-rec-en" action="https://formspree.io/f/xpwydeyv" method="POST" style="background:#1d1d1d; padding:20px; border-radius:10px;">
+      <label>Name *</label><br>
+      <input type="text" name="name" required style="width:100%; margin:6px 0 12px; padding:10px; border-radius:6px; border:1px solid #444; background:#000; color:#fff;"><br>
+
+      <label>Email (optional)</label><br>
+      <input type="email" name="email" style="width:100%; margin:6px 0 12px; padding:10px; border-radius:6px; border:1px solid #444; background:#000; color:#fff;"><br>
+
+      <label>Your review *</label><br>
+      <textarea name="review" rows="5" required style="width:100%; margin:6px 0 12px; padding:10px; border-radius:6px; border:1px solid #444; background:#000; color:#fff;"></textarea><br>
+
+      <button type="submit" style="background:#e63946; border:none; padding:12px 20px; border-radius:6px; color:#fff; cursor:pointer;">Submit</button>
+    </form>
+  </main>
+
+  <footer style="background:#000; text-align:center; padding:20px; margin-top:40px;">
+    <p>&copy; 2025 New Slavery</p>
+  </footer>
+
+  <!-- JS redirect -->
+  <script>
+  (function () {
+    const form = document.getElementById("fs-rec-en");
+    if(form){
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          await fetch(form.action, { method:"POST", body:data, headers:{Accept:"application/json"} });
+          window.location.href = "thanks_en.html";
+        } catch (err) {
+          window.location.href = "thanks_en.html";
+        }
+      });
+    }
+  })();
+  </script>
+
+</body>
+</html>
