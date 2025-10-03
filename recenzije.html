@@ -8,6 +8,7 @@
 </head>
 <body style="background:#111; color:#fff; font-family:Arial, sans-serif;">
 
+  <!-- Navigacija -->
   <nav class="main-nav" style="background:#000; padding:15px; display:flex; justify-content:space-between; align-items:center;">
     <ul style="list-style:none; margin:0; padding:0; display:flex; gap:10px;">
       <li><a href="index.html" class="btn">Početna</a></li>
@@ -27,6 +28,7 @@
     <h1 style="color:#e63946;">Ostavite recenziju</h1>
     <p>Vaše mišljenje pomaže drugima da otkriju knjigu.</p>
 
+    <!-- Forma -->
     <form id="fs-rec-sr" action="https://formspree.io/f/xpwydeyv" method="POST" style="background:#1d1d1d; padding:20px; border-radius:10px;">
       <label>Ime i prezime *</label><br>
       <input type="text" name="ime" required style="width:100%; margin:6px 0 12px; padding:10px; border-radius:6px; border:1px solid #444; background:#000; color:#fff;"><br>
@@ -39,13 +41,34 @@
 
       <button type="submit" style="background:#e63946; border:none; padding:12px 20px; border-radius:6px; color:#fff; cursor:pointer;">Pošalji</button>
     </form>
+
+    <!-- Objavljene recenzije -->
+    <section id="objavljene" style="margin-top:50px;">
+      <h2 style="color:#e63946;">Objavljene recenzije</h2>
+
+      <div style="background:#1d1d1d; padding:20px; border-radius:10px; margin:15px 0;">
+        <p>"Knjiga me je duboko pogodila, podseća na realnost mnogih radnika danas."</p>
+        <p style="color:#bbb;">— Ana, Beograd ⭐⭐⭐⭐⭐</p>
+      </div>
+
+      <div style="background:#1d1d1d; padding:20px; border-radius:10px; margin:15px 0;">
+        <p>"Vrlo snažna priča, jedva čekam štampano izdanje."</p>
+        <p style="color:#bbb;">— Milan, Novi Sad ⭐⭐⭐⭐</p>
+      </div>
+
+      <!-- NOVA RECENZIJA TEMPLATE -->
+      <div style="background:#1d1d1d; padding:20px; border-radius:10px; margin:15px 0;">
+        <p>"OVDE IDE TEKST RECENZIJE"</p>
+        <p style="color:#bbb;">— Ime, Grad ⭐⭐⭐⭐</p>
+      </div>
+    </section>
   </main>
 
   <footer style="background:#000; text-align:center; padding:20px; margin-top:40px;">
     <p>&copy; 2025 Novo ropstvo</p>
   </footer>
 
-  <!-- JS za custom redirect -->
+  <!-- JS za redirect -->
   <script>
   (function () {
     const form = document.getElementById("fs-rec-sr");
@@ -54,7 +77,7 @@
         e.preventDefault();
         const data = new FormData(form);
         try {
-          const resp = await fetch(form.action, { method:"POST", body:data, headers:{Accept:"application/json"} });
+          await fetch(form.action, { method:"POST", body:data, headers:{Accept:"application/json"} });
           window.location.href = "thanks.html";
         } catch (err) {
           window.location.href = "thanks.html";
