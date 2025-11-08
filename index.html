@@ -174,6 +174,99 @@
     </div>
   </footer>
 
+
+
   <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <!-- 🔻 ROTIRAJUĆI BANER SA SLIKOM KNJIGE -->
+<div class="sponsor-banner" id="sponsorBanner">
+  <button class="close-banner" onclick="closeBanner()">×</button>
+
+  <!-- Slajd 1 — glavna knjiga -->
+  <div class="banner-slide active">
+    <div class="banner-content">
+      <img src="images/novo-ropstvo-cover.jpg" alt="Novo ropstvo - Marjan Mitrović" class="book-cover">
+      <div class="sponsor-text">
+        <h3>📘 Roman „Novo ropstvo“</h3>
+        <p>Roman o savremenom radu, moći i otporu.  
+           Dostupan u digitalnom izdanju sa personalizovanim preuzimanjem.</p>
+        <a href="https://novo-ropstvo.github.io/novo-ropstvo/placanje.html" target="_blank" class="sponsor-btn">Preuzmi knjigu</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slajd 2 — nova knjiga -->
+  <div class="banner-slide">
+    <div class="banner-content">
+      <img src="images/kapitalizam-cover.jpg" alt="Kapitalizam — Anatomija moći i nejednakosti" class="book-cover">
+      <div class="sponsor-text">
+        <h3>📙 Nova knjiga: „Kapitalizam — Anatomija moći i nejednakosti“</h3>
+        <p>Analiza globalnog sistema eksploatacije i nejednakosti — nastavak „Novog ropstva“.</p>
+        <a href="https://tvoj-link-nova-knjiga.html" target="_blank" class="sponsor-btn">Saznaj više</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slajd 3 — film -->
+  <div class="banner-slide">
+    <div class="banner-content">
+      <img src="images/baner-film.jpg" alt="Film Novo ropstvo" class="book-cover">
+      <div class="sponsor-text">
+        <h3>🎥 Film „Novo ropstvo“ — uskoro</h3>
+        <p>Filmska adaptacija romana — pogledaj prve scene i kadrove sa snimanja.</p>
+        <a href="https://novo-ropstvo.github.io/novo-ropstvo/galerija.html" target="_blank" class="sponsor-btn">Pogledaj</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔘 Navigacione tačke -->
+  <div class="banner-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
+
+<script>
+  // ✖️ Zatvaranje banera
+  function closeBanner() {
+    const banner = document.getElementById('sponsorBanner');
+    banner.style.opacity = '0';
+    setTimeout(() => banner.style.display = 'none', 400);
+  }
+
+  // 🔁 Automatska rotacija
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.banner-slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+      dots[i].classList.toggle('active', i === index);
+    });
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    showSlide((currentSlide + 1) % slides.length);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showSlide(i));
+  });
+
+  setInterval(nextSlide, 10000); // menja se svakih 10 sekundi
+
+  // 💫 pojavi se nakon 5 sekundi
+  window.addEventListener('load', () => {
+    const banner = document.getElementById('sponsorBanner');
+    banner.style.display = 'none';
+    setTimeout(() => {
+      banner.style.display = 'flex';
+      banner.style.opacity = '1';
+    }, 5000);
+  });
+</script>
+
 </body>
 </html>
