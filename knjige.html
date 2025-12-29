@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ostale knjige | Marjan Mitrović</title>
+  <meta name="description" content="Ostale knjige autora: Kapitalizam – Anatomija moći i nejednakosti i Između Lidica i Praškog proleća." />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{
+      --bg:#0b0d10; --panel:#11141a; --panel2:#0f1217;
+      --text:#e8edf2; --muted:#b6c0cc; --line:rgba(255,255,255,.08);
+      --accent:#d7b36a; --btn:#171b22;
+      --radius:18px;
+    }
+    body{margin:0;background:radial-gradient(1200px 600px at 20% 0%,rgba(215,179,106,.12),transparent 55%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit}
+    .wrap{max-width:1080px;margin:0 auto;padding:28px 18px 64px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:8px 0 22px}
+    .brand{display:flex;flex-direction:column;gap:2px}
+    .brand .t{font-weight:750;letter-spacing:.3px}
+    .brand .s{color:var(--muted);font-size:14px}
+
+    .lang{
+      position:fixed; top:14px; right:14px; z-index:9999;
+      display:flex; gap:8px; padding:10px 10px;
+      background:rgba(17,20,26,.75); border:1px solid var(--line);
+      backdrop-filter: blur(10px);
+      border-radius:999px;
+    }
+    .lang a{
+      text-decoration:none; font-size:13px; padding:6px 10px;
+      border-radius:999px; border:1px solid transparent; color:var(--muted);
+    }
+    .lang a.active{color:var(--text);border-color:var(--line);background:rgba(255,255,255,.04)}
+    .lang a:hover{color:var(--text)}
+
+    .hero{
+      border:1px solid var(--line); background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);
+      border-radius:var(--radius);
+      padding:22px 22px;
+      margin:0 0 18px;
+    }
+    .hero h1{margin:0 0 8px;font-size:28px;letter-spacing:.2px}
+    .hero p{margin:0;color:var(--muted);line-height:1.6}
+
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width: 880px){ .grid{grid-template-columns:1fr 1fr} }
+
+    .card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+      border-radius:var(--radius);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+    .cardTop{display:flex;gap:16px;padding:18px 18px 10px}
+    .cover{
+      width:118px; min-width:118px; height:176px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(215,179,106,.14),rgba(255,255,255,.03));
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(255,255,255,.55);
+      font-size:12px; text-align:center; padding:8px;
+      overflow:hidden;
+    }
+    .cover img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}
+
+    /* klik na koricu -> uvećanje */
+    .cover-img{cursor:zoom-in}
+
+    .meta h2{margin:0 0 6px;font-size:18px;letter-spacing:.2px}
+    .meta .sub{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.5}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{
+      font-size:12px;color:var(--muted);
+      padding:6px 10px;border-radius:999px;
+      border:1px solid var(--line);background:rgba(255,255,255,.02)
+    }
+
+    .cardBody{padding:0 18px 12px}
+    .cardBody p{margin:10px 0 0;color:var(--text);line-height:1.75}
+    .cardBody p.muted{color:var(--muted)}
+
+    .actions{margin-top:auto;padding:14px 18px 18px;display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);background:rgba(0,0,0,.14)}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      text-decoration:none;
+      padding:10px 12px;border-radius:12px;
+      border:1px solid var(--line);
+      background:var(--btn);
+      color:var(--text);
+      font-size:14px;
+      white-space:nowrap;
+    }
+    .btn:hover{border-color:rgba(215,179,106,.35)}
+    .btn.primary{background:rgba(215,179,106,.14);border-color:rgba(215,179,106,.35)}
+    .btn.outline{background:transparent}
+    .btn.disabled{opacity:.55;pointer-events:none}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.6}
+    .divider{height:1px;background:var(--line);margin:18px 0}
+
+    /* Lightbox */
+    #lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.9);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:10000;
+      padding:20px;
+    }
+    #lightbox img{
+      max-width:92vw;
+      max-height:92vh;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 0 50px rgba(0,0,0,.65);
+      cursor:zoom-out;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="lang" aria-label="Jezik">
+    <a class="active" href="knjige.html">SR</a>
+    <a href="knjige_en.html">EN</a>
+    <a href="knjige_cz.html">CZ</a>
+  </nav>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="t">Marjan Mitrović</div>
+        <div class="s">Bibliografija / Ostale knjige</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+        <a class="btn" href="index.html">Početna</a>
+        <a class="btn" href="placanje.html">Novo ropstvo</a>
+        <a class="btn" href="galerija.html">Galerija</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Ostale knjige</h1>
+      <p>
+        Pored romana <em>Novo ropstvo</em>, autor je napisao dela koja se bave političkom ekonomijom,
+        istorijskim traumama i savremenim društvom.
+      </p>
+    </section>
+
+    <section class="grid">
+      <!-- KAPITALIZAM -->
+      <article class="card">
+        <div class="cardTop">
+          <div class="cover" aria-label="Korice knjige Kapitalizam">
+            <img
+              src="images/kapitalizam-cover.png"
+              alt="Kapitalizam – Anatomija moći i nejednakosti (korice)"
+              class="cover-img"
+              onclick="openLightbox(this.src)"
+            >
+          </div>
+          <div class="meta">
+            <h2>Kapitalizam – Anatomija moći i nejednakosti</h2>
+            <p class="sub">Od Istočnoindijske kompanije do globalne finansijske krize</p>
+            <div class="tags" aria-label="Teme">
+              <span class="tag">istorija kapitalizma</span>
+              <span class="tag">moć i ideologija</span>
+              <span class="tag">rad i nejednakost</span>
+              <span class="tag">finansijalizacija</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardBody">
+          <p>
+            Knjiga predstavlja višeslojnu analizu kapitalizma kao istorijskog, ekonomskog i političkog sistema.
+            Polazeći od kolonijalnih korena i uspona trgovačkih kompanija, prati se transformacija kapitalizma kroz
+            industrijsku revoluciju, uspon finansijskog sektora i savremeni globalni poredak.
+          </p>
+          <p class="muted">
+            Kombinujući istorijsku analizu, ekonomsku teoriju i političku filozofiju, tekst pokazuje kako koncentracija kapitala
+            preoblikuje društva, potiskuje srednju klasu i normalizuje krizu kao trajno stanje sistema.
+          </p>
+        </div>
+
+        <div class="actions" aria-label="Akcije">
+          <a class="btn outline" href="odlomak1.html">Pročitaj odlomak</a>
+          <a class="btn primary" href="placanje.html">Kupi EPUB</a>
+        </div>
+      </article>
+
+      <!-- IZMEĐU LIDICA -->
+      <article class="card">
+        <div class="cardTop">
+          <div class="cover" aria-label="Korice knjige Između Lidica i Praškog proleća">
+            <img
+              src="images/izmedju-lidica-cover.png"
+              alt="Između Lidica i Praškog proleća (korice)"
+              class="cover-img"
+              onclick="openLightbox(this.src)"
+            >
+          </div>
+          <div class="meta">
+            <h2>Između Lidica i Praškog proleća</h2>
+            <p class="sub">Sećanje, odgovornost i tišina istorije</p>
+            <div class="tags" aria-label="Teme">
+              <span class="tag">kolektivno pamćenje</span>
+              <span class="tag">istorijska trauma</span>
+              <span class="tag">moralne dileme</span>
+              <span class="tag">pojedinac i sistem</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardBody">
+          <p>
+            Knjiga se bavi prostorom između dva istorijska simbola — nacističkog zločina i slomljene nade reforme.
+            Kroz istorijski i refleksivni pristup, istražuje sudbinu pojedinca i društva uhvaćenog između ideologija,
+            nasilja i razočaranja.
+          </p>
+          <p class="muted">
+            Fokus je na mehanizmima ćutanja, prilagođavanja i unutrašnjeg otpora, kao i na pitanju odgovornosti u vremenima
+            kada istorija ne ostavlja prostor za neutralnost.
+          </p>
+        </div>
+
+        <div class="actions" aria-label="Akcije">
+          <a class="btn outline" href="odlomak2.html">Pročitaj odlomak</a>
+          <a class="btn primary" href="placanje.html">Kupi EPUB</a>
+        </div>
+      </article>
+    </section>
+
+    <div class="divider"></div>
+
+    <footer>
+      <div style="margin-top:10px;">Kontakt: <a href="mailto:marjan.posao@gmail.com">marjan.posao@gmail.com</a></div>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()" aria-label="Uvećan prikaz korica" role="dialog" aria-modal="true">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    function openLightbox(src){
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lb.style.display = 'flex';
+    }
+    function closeLightbox(){
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = '';
+      lb.style.display = 'none';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
+
